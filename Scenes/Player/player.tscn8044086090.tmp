@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://clps720t4p385" path="res://Scripts/Player/States/run.gd" id="5_htcer"]
 [ext_resource type="Script" uid="uid://cx7v2sl6hmc8o" path="res://Scripts/Player/States/jump.gd" id="6_dd0ac"]
 [ext_resource type="Script" uid="uid://5g66wamlomtv" path="res://Scripts/Player/States/crouch.gd" id="7_0u5uq"]
-[ext_resource type="Script" uid="uid://v6tasynld3ka" path="res://Scripts/Player/States/fall.gd" id="8_jlvik"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvnfx"]
 radius = 22.206396
@@ -112,17 +111,6 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=1620564711]
 script = ExtResource("1_a3d8c")
-max_speed = 600.0
-acceleration = 2800.0
-deceleration = 2500.0
-turn_deceleration = 8000.0
-gravity = 1800.0
-max_fall_speed = 1300.0
-max_x_while_fall = 600.0
-accel_x_while_fall = 2000.0
-decel_x_while_fall = 2000.0
-jump_velocity = -950.0
-fall_grace_period = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2090277876]
 position = Vector2(2.842171e-14, 20)
@@ -130,7 +118,7 @@ scale = Vector2(0.8556093, 0.9236608)
 shape = SubResource("CapsuleShape2D_uvnfx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=140697639]
-position = Vector2(-2, -3)
+position = Vector2(1.9999995, -2)
 scale = Vector2(1.2891196, 1.2764285)
 sprite_frames = SubResource("SpriteFrames_dey5f")
 animation = &"Idle"
@@ -146,6 +134,7 @@ metadata/_custom_type_script = "uid://2y37yx57ooc4"
 
 [node name="Run" type="Node" parent="FiniteStateMachine" unique_id=868546514]
 script = ExtResource("5_htcer")
+id = null
 metadata/_custom_type_script = "uid://2y37yx57ooc4"
 
 [node name="Jump" type="Node" parent="FiniteStateMachine" unique_id=1559531937]
@@ -154,8 +143,4 @@ metadata/_custom_type_script = "uid://2y37yx57ooc4"
 
 [node name="Crouch" type="Node" parent="FiniteStateMachine" unique_id=728040468]
 script = ExtResource("7_0u5uq")
-metadata/_custom_type_script = "uid://2y37yx57ooc4"
-
-[node name="Fall" type="Node" parent="FiniteStateMachine" unique_id=1520864682]
-script = ExtResource("8_jlvik")
 metadata/_custom_type_script = "uid://2y37yx57ooc4"

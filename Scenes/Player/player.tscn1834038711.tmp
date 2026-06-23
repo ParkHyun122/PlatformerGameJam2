@@ -119,10 +119,10 @@ turn_deceleration = 8000.0
 gravity = 1800.0
 max_fall_speed = 1300.0
 max_x_while_fall = 600.0
-accel_x_while_fall = 2000.0
+accel_x_while_fall = 1500.0
 decel_x_while_fall = 2000.0
 jump_velocity = -950.0
-fall_grace_period = 0.1
+fall_grace_period = 0.15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2090277876]
 position = Vector2(2.842171e-14, 20)

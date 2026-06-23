@@ -1,3 +1,54 @@
 [gd_scene format=3 uid="uid://85pcnmc4jpkn"]
 
+[ext_resource type="PackedScene" uid="uid://2d5kl1qa4qu4" path="res://Scenes/Platform/simple_platform.tscn" id="1_8uh7m"]
+[ext_resource type="PackedScene" uid="uid://banbl16u1mtw6" path="res://Scenes/Player/player.tscn" id="2_6uqi0"]
+
 [node name="Test" type="Node2D" unique_id=1519936627]
+
+[node name="SimplePlatform" parent="." unique_id=174581043 instance=ExtResource("1_8uh7m")]
+position = Vector2(422.00003, 1184.0001)
+scale = Vector2(3.353017, 1.6922292)
+
+[node name="SimplePlatform2" parent="." unique_id=1055585938 instance=ExtResource("1_8uh7m")]
+position = Vector2(230.00002, 637)
+scale = Vector2(2.7881336, 3.1399503)
+
+[node name="Player" parent="." unique_id=1050035673 instance=ExtResource("2_6uqi0")]
+position = Vector2(-622, 1013.9999)
+scale = Vector2(0.6658675, 0.74102443)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1303455872]
+position = Vector2(204.24484, -273.9449)
+rotation = 3.1415927
+scale = Vector2(1.4769527, 2.6585693)
+process_callback = 0
+position_smoothing_enabled = true
+
+[node name="SimplePlatform3" parent="." unique_id=1682291444 instance=ExtResource("1_8uh7m")]
+position = Vector2(1654.9995, 642.0001)
+scale = Vector2(0.122475244, -21.675388)
+
+[node name="SimplePlatform4" parent="." unique_id=1823231918 instance=ExtResource("1_8uh7m")]
+position = Vector2(666.99994, 317)
+scale = Vector2(0.66998404, 0.9012241)
+
+[node name="SimplePlatform5" parent="." unique_id=2029928513 instance=ExtResource("1_8uh7m")]
+position = Vector2(-152, 108.99999)
+scale = Vector2(0.5574212, -1.0496076)
+
+[node name="SimplePlatform6" parent="." unique_id=1621428918 instance=ExtResource("1_8uh7m")]
+position = Vector2(-785, -960)
+scale = Vector2(0.15678504, 46.367622)
+
+[node name="SimplePlatform7" parent="." unique_id=1889042570 instance=ExtResource("1_8uh7m")]
+position = Vector2(-317.00006, -989.5524)
+rotation = 3.1415927
+scale = Vector2(0.113988936, 24.65638)
+
+[node name="SimplePlatform8" parent="." unique_id=1926513341 instance=ExtResource("1_8uh7m")]
+position = Vector2(-2, -1651)
+scale = Vector2(0.98906416, 1.334134)
+
+[node name="SimplePlatform9" parent="." unique_id=1136617069 instance=ExtResource("1_8uh7m")]
+position = Vector2(379.00006, -1977)
+rotation = -1.5709829

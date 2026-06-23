@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://2d5kl1qa4qu4"]
+
+[ext_resource type="Texture2D" uid="uid://dbvqqigxxtsq3" path="res://Assets/tiles/floor/floor_2.png" id="1_f3dba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3dba"]
+size = Vector2(705.5, 52)
+
+[node name="SimplePlatform" type="StaticBody2D" unique_id=1682291444]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1402365841]
+position = Vector2(0, -5.9604645e-08)
+scale = Vector2(44.125, 3.25)
+texture = ExtResource("1_f3dba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=359494942]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_f3dba")
