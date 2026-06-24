@@ -14,15 +14,9 @@ position = Vector2(230.00002, 637)
 scale = Vector2(2.7881336, 3.1399503)
 
 [node name="Player" parent="." unique_id=1050035673 instance=ExtResource("2_6uqi0")]
-position = Vector2(-622, 1013.9999)
+position = Vector2(-691, 1046)
+rotation = -0.0037710317
 scale = Vector2(0.6658675, 0.74102443)
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1303455872]
-position = Vector2(204.24484, -273.9449)
-rotation = 3.1415927
-scale = Vector2(1.4769527, 2.6585693)
-process_callback = 0
-position_smoothing_enabled = true
 
 [node name="SimplePlatform3" parent="." unique_id=1682291444 instance=ExtResource("1_8uh7m")]
 position = Vector2(1654.9995, 642.0001)
@@ -34,7 +28,7 @@ scale = Vector2(0.66998404, 0.9012241)
 
 [node name="SimplePlatform5" parent="." unique_id=2029928513 instance=ExtResource("1_8uh7m")]
 position = Vector2(-152, 108.99999)
-scale = Vector2(0.5574212, -1.0496076)
+scale = Vector2(1.0083355, -1.0496076)
 
 [node name="SimplePlatform6" parent="." unique_id=1621428918 instance=ExtResource("1_8uh7m")]
 position = Vector2(-785, -960)

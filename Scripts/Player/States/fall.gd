@@ -6,6 +6,7 @@ extends State
 func enter():
 	print("State = Fall")
 	player.sprite.play("Move")
+	player.movement_velocity.y = 0.0
 	
 func physics_update(delta: float):
 	if player.grace_period > 0:
