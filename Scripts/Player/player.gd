@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast : RayCast2D = $CollisionShape2D/WallDetector
+@onready var main = get_tree().get_root().get_node("Test")
+@onready var kunai = load("res://Scenes/Player/kunai.tscn")
 
 @export var max_speed := 300.0
 @export var acceleration := 1200.0
@@ -27,6 +29,9 @@ func _ready() -> void:
 	raycast.target_position.x = wall_cling_range
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("throw_kunai"):
+		throw_kunai()
+	
 	var face_dir = get_x_input()
 
 	if face_dir == -1.0:
@@ -55,3 +60,13 @@ func get_x_input() -> float:
 		return 1.0
 
 	return 0.0
+
+func throw_kunai():
+	var instance = kunai.instantiate()
+	instance.dir = get_mouse_dir().angle()
+	instance.spawnPos = global_position
+	instance.spawnRot = get_mouse_dir().angle()
+	main.add_child.call_deferred(instance)
+	
+func get_mouse_dir() -> Vector2 :
+	return (get_global_mouse_position() - global_position).normalized()

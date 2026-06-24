@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b4j6dob7xvuq3"]
+
+[ext_resource type="Texture2D" uid="uid://b662b6vrtuqkc" path="res://Assets/spritesheets/kunai_sheet.png" id="1_hmhcd"]
+[ext_resource type="Script" uid="uid://f7mem0ltquif" path="res://Scripts/Player/kunai.gd" id="1_og1pr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_og1pr"]
+radius = 5.0
+height = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1d6m"]
+atlas = ExtResource("1_hmhcd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osmvk"]
+atlas = ExtResource("1_hmhcd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yc3r"]
+atlas = ExtResource("1_hmhcd")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pt3r"]
+atlas = ExtResource("1_hmhcd")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jl2j6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1d6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osmvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yc3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pt3r")
+}],
+"loop": true,
+"name": &"Thrown",
+"speed": 10.0
+}]
+
+[node name="Kunai" type="CharacterBody2D" unique_id=1413344923]
+collision_layer = 32
+collision_mask = 21
+script = ExtResource("1_og1pr")
+SPEED = 2000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2102136272]
+position = Vector2(3, 0)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_og1pr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=903719015]
+sprite_frames = SubResource("SpriteFrames_jl2j6")
+animation = &"Thrown"
+frame_progress = 0.25927463

@@ -56,7 +56,7 @@ func try_cling():
 	hang_time = 0.7
 	clinged_on = false
 
-	var dir := (player.get_global_mouse_position() - player.global_position).normalized()
+	var dir := player.get_mouse_dir()
 
 	player.raycast.rotation = dir.angle()
 	player.raycast.force_raycast_update()
