@@ -23,7 +23,7 @@ func physics_update(delta: float):
 		transition("Idle")
 		return
 	elif Input.is_action_just_pressed("wall_cling"):
-		transition("WallCling")
+		transition("WallZip")
 		return
 	else:
 		var target_x_velocity := move_dir * player.max_speed

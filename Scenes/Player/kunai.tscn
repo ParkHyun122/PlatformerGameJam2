@@ -55,6 +55,7 @@ rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_og1pr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=903719015]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_jl2j6")
 animation = &"Thrown"
 frame_progress = 0.25927463

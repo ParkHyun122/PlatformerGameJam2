@@ -3,10 +3,10 @@ extends CharacterBody2D
 
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast : RayCast2D = $CollisionShape2D/WallDetector
-@onready var main = get_tree().get_root().get_node("Test")
-@onready var kunai = load("res://Scenes/Player/kunai.tscn")
+@onready var main = get_tree().current_scene
+@onready var kunai = preload("res://Scenes/Player/kunai.tscn")
 
-@export var max_speed := 300.0
+@export var max_speed := 200.0
 @export var acceleration := 1200.0
 @export var deceleration := 3000.0
 @export var turn_deceleration := 4500.0
@@ -24,7 +24,36 @@ extends CharacterBody2D
 var grace_period := 0.0
 var movement_velocity := Vector2.ZERO
 var knockback_velocity := Vector2.ZERO
+var wall_surface_normal := Vector2.ZERO
 
+const N_DIAG = 0.707107
+
+const EIGHT_DIRS := [
+	Vector2.RIGHT, Vector2(N_DIAG, N_DIAG), Vector2.DOWN, Vector2(-N_DIAG, N_DIAG),
+	Vector2.LEFT, Vector2(-N_DIAG, -N_DIAG), Vector2.UP, Vector2(N_DIAG, -N_DIAG)
+]
+
+func get_snapped_dir(raw_dir: Vector2) -> Vector2:
+	var best_dir := EIGHT_DIRS[0]
+	var best_dot := -INF
+	for d in EIGHT_DIRS:
+		var dot := raw_dir.dot(d)
+		if dot > best_dot:
+			best_dot = dot
+			best_dir = d
+	return best_dir
+
+# call every physics frame from a state OTHER than WallZip/WallCling/CeilingHang
+func update_zip_trace(trace: Line2D) -> void:
+	var dir := get_snapped_dir(get_mouse_dir())
+	raycast.rotation = dir.angle()
+	raycast.force_raycast_update()
+	if raycast.is_colliding():
+		trace.default_color = Color.GREEN if (raycast.get_collider() as Node).is_in_group("platforms") else Color.RED
+		trace.points = [Vector2.ZERO, to_local(raycast.get_collision_point())]
+	else:
+		trace.default_color = Color.RED
+		trace.points = [Vector2.ZERO, dir * wall_cling_range]
 func _ready() -> void:
 	raycast.target_position.x = wall_cling_range
 

@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://5g66wamlomtv" path="res://Scripts/Player/States/crouch.gd" id="7_0u5uq"]
 [ext_resource type="Script" uid="uid://v6tasynld3ka" path="res://Scripts/Player/States/fall.gd" id="8_jlvik"]
 [ext_resource type="Script" uid="uid://bd2n63seh8dfw" path="res://Scripts/Player/States/wallCling.gd" id="9_gk6dx"]
+[ext_resource type="Script" uid="uid://dnnvl8rl2cdla" path="res://Scripts/Player/States/wall_zip.gd" id="10_jhyir"]
+[ext_resource type="Script" uid="uid://db8xct81lhwsk" path="res://Scripts/Player/States/ceiling_hang.gd" id="11_74mp2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvnfx"]
 radius = 22.206396
@@ -136,15 +138,14 @@ shape = SubResource("CapsuleShape2D_uvnfx")
 position = Vector2(-3.321809e-14, -21.65297)
 rotation = 0.00021225028
 scale = Vector2(2.2753935, -2.0843098)
-target_position = Vector2(300, 0)
+target_position = Vector2(800, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=140697639]
+texture_filter = 1
 position = Vector2(-2, -3)
 scale = Vector2(1.2891196, 1.2764285)
 sprite_frames = SubResource("SpriteFrames_dey5f")
-animation = &"Move"
-frame = 2
-frame_progress = 0.44162667
+animation = &"Idle"
 
 [node name="FiniteStateMachine" type="Node" parent="." unique_id=1146434802 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_mtuoh")
@@ -173,7 +174,14 @@ metadata/_custom_type_script = "uid://2y37yx57ooc4"
 
 [node name="WallCling" type="Node" parent="FiniteStateMachine" unique_id=128717789]
 script = ExtResource("9_gk6dx")
-id = null
+metadata/_custom_type_script = "uid://2y37yx57ooc4"
+
+[node name="WallZip" type="Node" parent="FiniteStateMachine" unique_id=108372539]
+script = ExtResource("10_jhyir")
+metadata/_custom_type_script = "uid://2y37yx57ooc4"
+
+[node name="CeilingHang" type="Node" parent="FiniteStateMachine" unique_id=1557584603]
+script = ExtResource("11_74mp2")
 metadata/_custom_type_script = "uid://2y37yx57ooc4"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=374039498]
