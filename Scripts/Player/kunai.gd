@@ -18,4 +18,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if get_slide_collision_count() > 0:
-		queue_free()
+		kunai_remove()
+		
+
+func kunai_remove():
+	get_tree().add_child()
+	queue_free()
