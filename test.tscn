@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://2d5kl1qa4qu4" path="res://Scenes/Platform/simple_platform.tscn" id="1_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://banbl16u1mtw6" path="res://Scenes/Player/player.tscn" id="2_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://t4fp7j4rie76" path="res://Scenes/Platform/cling_platform.tscn" id="3_6uqi0"]
 
 [node name="Test" type="Node2D" unique_id=1519936627]
 
@@ -46,3 +47,12 @@ scale = Vector2(0.98906416, 1.334134)
 [node name="SimplePlatform9" parent="." unique_id=1136617069 instance=ExtResource("1_8uh7m")]
 position = Vector2(379.00006, -1977)
 rotation = -1.5709829
+
+[node name="cling_platform" parent="." unique_id=2026071829 instance=ExtResource("3_6uqi0")]
+position = Vector2(28, 721)
+scale = Vector2(28.43043, 0.47011256)
+
+[node name="cling_platform2" parent="." unique_id=2021078119 instance=ExtResource("3_6uqi0")]
+position = Vector2(1606, 816.99994)
+rotation = 1.5721953
+scale = Vector2(-33.83181, -0.51678604)

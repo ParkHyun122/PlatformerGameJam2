@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://t4fp7j4rie76"]
+
+[ext_resource type="Texture2D" uid="uid://dcroaeopakffs" path="res://Assets/z_placeholders (delete later)/tiles/placeholders/floor/floor_stair.png" id="1_12gf4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7wr2"]
+size = Vector2(16, 16)
+
+[node name="cling_platform" type="StaticBody2D" unique_id=2026071829 groups=["clingable"]]
+collision_mask = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=694915615]
+texture = ExtResource("1_12gf4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=954287966]
+shape = SubResource("RectangleShape2D_c7wr2")

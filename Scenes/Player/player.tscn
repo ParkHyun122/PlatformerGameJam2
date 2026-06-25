@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://5g66wamlomtv" path="res://Scripts/Player/States/crouch.gd" id="7_0u5uq"]
 [ext_resource type="Script" uid="uid://v6tasynld3ka" path="res://Scripts/Player/States/fall.gd" id="8_jlvik"]
 [ext_resource type="Script" uid="uid://bd2n63seh8dfw" path="res://Scripts/Player/States/wallCling.gd" id="9_gk6dx"]
-[ext_resource type="Script" uid="uid://dnnvl8rl2cdla" path="res://Scripts/Player/States/wall_zip.gd" id="10_jhyir"]
+[ext_resource type="Script" uid="uid://dnnvl8rl2cdla" path="res://Scripts/Player/States/zip.gd" id="10_jhyir"]
 [ext_resource type="Script" uid="uid://db8xct81lhwsk" path="res://Scripts/Player/States/ceiling_hang.gd" id="11_74mp2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvnfx"]
@@ -176,7 +176,7 @@ metadata/_custom_type_script = "uid://2y37yx57ooc4"
 script = ExtResource("9_gk6dx")
 metadata/_custom_type_script = "uid://2y37yx57ooc4"
 
-[node name="WallZip" type="Node" parent="FiniteStateMachine" unique_id=108372539]
+[node name="Zip" type="Node" parent="FiniteStateMachine" unique_id=108372539]
 script = ExtResource("10_jhyir")
 metadata/_custom_type_script = "uid://2y37yx57ooc4"
 

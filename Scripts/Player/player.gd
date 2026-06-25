@@ -18,8 +18,9 @@ extends CharacterBody2D
 @export var decel_x_while_fall := 1800.0
 @export var jump_velocity := -2000.0
 @export var fall_grace_period := 0.2
-@export var wall_cling_range := 300
+@export var zip_range := 300
 @export var wall_jump_x_velocity := 300.0
+@export var cling_check_distance := 24.0
 
 var grace_period := 0.0
 var movement_velocity := Vector2.ZERO
@@ -43,7 +44,7 @@ func get_snapped_dir(raw_dir: Vector2) -> Vector2:
 			best_dir = d
 	return best_dir
 
-# call every physics frame from a state OTHER than WallZip/WallCling/CeilingHang
+# call every physics frame from a state OTHER than Zip/WallCling/CeilingHang
 func update_zip_trace(trace: Line2D) -> void:
 	var dir := get_snapped_dir(get_mouse_dir())
 	raycast.rotation = dir.angle()
@@ -53,9 +54,9 @@ func update_zip_trace(trace: Line2D) -> void:
 		trace.points = [Vector2.ZERO, to_local(raycast.get_collision_point())]
 	else:
 		trace.default_color = Color.RED
-		trace.points = [Vector2.ZERO, dir * wall_cling_range]
+		trace.points = [Vector2.ZERO, dir * zip_range]
 func _ready() -> void:
-	raycast.target_position.x = wall_cling_range
+	raycast.target_position.x = zip_range
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("throw_kunai"):
@@ -99,3 +100,28 @@ func throw_kunai():
 	
 func get_mouse_dir() -> Vector2 :
 	return (get_global_mouse_position() - global_position).normalized()
+	
+var zip_target_point := Vector2.ZERO
+var zip_surface_normal := Vector2.ZERO
+
+func can_zip_to_clingable() -> bool:
+	var dir := get_snapped_dir(get_mouse_dir())
+
+	raycast.rotation = dir.angle()
+	raycast.force_raycast_update()
+
+	if not raycast.is_colliding():
+		return false
+
+	var body := raycast.get_collider() as Node
+
+	if body == null or not body.is_in_group("clingable"):
+		return false
+
+	var hit_point := raycast.get_collision_point()
+	var normal := raycast.get_collision_normal()
+
+	zip_surface_normal = normal
+	zip_target_point = hit_point + normal * 6.0
+
+	return true

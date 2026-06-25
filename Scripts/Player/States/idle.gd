@@ -23,8 +23,9 @@ func physics_update(delta: float):
 	elif !player.is_on_floor():
 		transition("Fall")
 		return
-	elif Input.is_action_pressed("wall_cling"):
-		transition("WallZip")
+	elif Input.is_action_just_pressed("zip"):
+		if player.can_zip_to_clingable():
+			transition("Zip")
 		return
 	else:
 		player.movement_velocity = player.movement_velocity.move_toward(Vector2.ZERO, player.deceleration * delta)
