@@ -28,6 +28,7 @@ var grace_period := 0.0
 var movement_velocity := Vector2.ZERO
 var knockback_velocity := Vector2.ZERO
 var wall_surface_normal := Vector2.ZERO
+var current_kunai : Kunai 
 
 const N_DIAG = 0.707107
 
@@ -62,7 +63,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("throw_kunai"):
-		throw_kunai()
+		throw_or_retrieve_kunai()
 		
 	if cling_detach_lockout > 0.0:
 		cling_detach_lockout -= delta
@@ -96,13 +97,17 @@ func get_x_input() -> float:
 
 	return 0.0
 
-func throw_kunai():
-	var instance = kunai.instantiate()
-	instance.dir = get_mouse_dir().angle()
-	instance.spawnPos = global_position
-	instance.spawnRot = get_mouse_dir().angle()
-	main.add_child.call_deferred(instance)
-	
+func throw_or_retrieve_kunai():
+	if current_kunai == null:
+		current_kunai = kunai.instantiate()
+		current_kunai.player = self
+		current_kunai.dir = get_mouse_dir().angle()
+		current_kunai.spawnPos = global_position
+		current_kunai.spawnRot = get_mouse_dir().angle()
+		main.add_child.call_deferred(current_kunai)
+	else:
+		current_kunai.retrieve()
+		
 func get_mouse_dir() -> Vector2 :
 	return (get_global_mouse_position() - global_position).normalized()
 	

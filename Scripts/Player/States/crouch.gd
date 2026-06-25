@@ -3,8 +3,10 @@ extends State
 
 @onready var player : Player = $"../.."
 
+#we'll change this later, we need a sprite for this, im just scaling it down which is goofy ash
 func enter():
-	player.scale = Vector2(1.0, 0.5) 
+	print("Before crouch:", player.scale)
+	player.scale = Vector2(0.665868, 0.381024) 
 	player.sprite.play("Move")
 	
 func physics_update(delta: float):
@@ -41,4 +43,5 @@ func physics_update(delta: float):
 	)
 
 func exit():
-	player.scale = Vector2(1.0, 1.0) 
+	player.scale = Vector2(0.665868, 0.741024) 
+	print("after crouch:", player.scale)
