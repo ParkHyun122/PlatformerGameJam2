@@ -5,10 +5,12 @@ extends State
 
 @export var cling_move_speed := 200.0
 @export var drop_sway_speed := 180.0
+var ceiling_attach_grace := 0.05
 
 var just_entered := false
 
 func enter():
+	ceiling_attach_grace = 0.05
 	print("State = CeilingHang")
 	player.sprite.play("Idle")
 	player.movement_velocity = Vector2.ZERO
@@ -37,7 +39,8 @@ func physics_update(delta: float) -> void:
 func _move_along_ceiling() -> void:
 	var input_x := player.get_x_input()
 
-	player.movement_velocity = Vector2.RIGHT * input_x * cling_move_speed
+	player.movement_velocity.x = input_x * cling_move_speed
+	player.movement_velocity.y = -20.0 # tiny pressure into ceiling
 	player.knockback_velocity = Vector2.ZERO
 
 func _drop_or_assassinate() -> void:
@@ -54,6 +57,8 @@ func _drop_or_assassinate() -> void:
 	transition("Fall")
 
 func _still_touching_clingable() -> bool:
+	print(player.get_slide_collision_count())
+
 	for i in player.get_slide_collision_count():
 		var collision := player.get_slide_collision(i)
 		var collider := collision.get_collider() as Node

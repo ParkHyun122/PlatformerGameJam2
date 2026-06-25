@@ -16,6 +16,11 @@ func physics_update(delta: float):
 	if player.velocity.y > 0 or player.is_on_ceiling():
 		transition("Fall")
 		return
+		
+	if Input.is_action_just_pressed("zip"):
+		if player.can_zip_to_clingable():
+			transition("Zip")
+		return
 
 	var move_dir := player.get_x_input()
 	var target_x_velocity := move_dir * player.max_x_while_fall

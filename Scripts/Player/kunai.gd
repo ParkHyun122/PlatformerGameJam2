@@ -2,6 +2,7 @@ class_name Kunai
 extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var anim: AnimationPlayer = $AnimationPlayer
 @export var SPEED = 300.0
 
 var dir : float
@@ -24,4 +25,6 @@ func _physics_process(delta: float) -> void:
 func kunai_remove():
 	#this somehow crashes my game
 	#get_tree().add_child()
-	queue_free()
+	sprite.stop()
+	set_physics_process(false)
+	anim.play("fade")
