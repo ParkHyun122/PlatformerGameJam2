@@ -21,7 +21,9 @@ extends CharacterBody2D
 @export var zip_range := 300
 @export var wall_jump_x_velocity := 300.0
 @export var cling_check_distance := 24.0
+@export var cling_detach_lockout_max := 0.2
 
+var cling_detach_lockout := 0.0
 var grace_period := 0.0
 var movement_velocity := Vector2.ZERO
 var knockback_velocity := Vector2.ZERO
@@ -61,6 +63,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("throw_kunai"):
 		throw_kunai()
+		
+	if cling_detach_lockout > 0.0:
+		cling_detach_lockout -= delta
 	
 	var face_dir = get_x_input()
 
@@ -125,3 +130,9 @@ func can_zip_to_clingable() -> bool:
 	zip_target_point = hit_point + normal * 6.0
 
 	return true
+	
+func start_cling_detach_lockout() -> void:
+	cling_detach_lockout = cling_detach_lockout_max
+
+func can_attach_to_clingable() -> bool:
+	return cling_detach_lockout <= 0.0

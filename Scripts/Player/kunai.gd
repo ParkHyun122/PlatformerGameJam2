@@ -22,5 +22,6 @@ func _physics_process(delta: float) -> void:
 		
 
 func kunai_remove():
-	get_tree().add_child()
+	#this somehow crashes my game
+	#get_tree().add_child()
 	queue_free()

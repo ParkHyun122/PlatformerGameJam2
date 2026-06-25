@@ -41,24 +41,27 @@ func physics_update(delta: float) -> void:
 func _move_along_wall() -> void:
 	var input_x := player.get_x_input()
 
-	# Wall tangent: the vertical direction along the wall
 	var tangent := Vector2(-player.wall_surface_normal.y, player.wall_surface_normal.x)
 
-	# Make A/D map differently depending on which side the wall is on.
-	# If wall is on player's left, normal.x is positive.
-	# A should move up, D should move down.
-	var side_sign := signf(player.wall_surface_normal.x)
+	var side_sign := -signf(player.wall_surface_normal.x)
 
-	player.movement_velocity = tangent * input_x * side_sign * cling_move_speed
+	var along_wall := tangent * input_x * side_sign * cling_move_speed
+	var into_wall := -player.wall_surface_normal * 30.0
+
+	player.movement_velocity = along_wall + into_wall
 	player.knockback_velocity = Vector2.ZERO
 
 func _wall_jump() -> void:
+	player.start_cling_detach_lockout()
+
 	player.movement_velocity.x = player.wall_surface_normal.x * player.wall_jump_x_velocity
 	player.movement_velocity.y = player.jump_velocity
 	transition("Jump")
 
 func _deliberate_drop() -> void:
 	player.grace_period = 0.0
+	player.start_cling_detach_lockout()
+
 	var move_dir := player.get_x_input()
 	player.movement_velocity.x = move_dir * drop_sway_speed
 	transition("Fall")

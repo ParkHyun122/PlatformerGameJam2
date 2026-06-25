@@ -48,6 +48,9 @@ func physics_update(delta: float):
 	)
 
 func _check_clingable_collision() -> bool:
+	if not player.can_attach_to_clingable():
+		return false
+
 	for i in player.get_slide_collision_count():
 		var collision := player.get_slide_collision(i)
 		var collider := collision.get_collider() as Node

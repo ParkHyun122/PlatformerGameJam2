@@ -47,6 +47,8 @@ func _drop_or_assassinate() -> void:
 		transition("Idle")
 		return
 
+	player.start_cling_detach_lockout()
+
 	var move_dir := player.get_x_input()
 	player.movement_velocity.x = move_dir * drop_sway_speed
 	transition("Fall")
