@@ -47,7 +47,7 @@ animations = [{
 collision_layer = 32
 collision_mask = 21
 script = ExtResource("1_og1pr")
-SPEED = 2000.0
+retrieve_speed = 2500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2102136272]
 position = Vector2(-3, 0)
