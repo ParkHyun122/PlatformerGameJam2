@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.RIGHT.rotated(dir) * retrieve_speed
 		move_and_slide()
 
-		if global_position.distance_to(player.global_position) < 20:
+		if global_position.distance_to(player.global_position) < 25:
 			player.current_kunai = null
 			queue_free()
 
@@ -43,7 +43,6 @@ func _physics_process(delta: float) -> void:
 	if get_slide_collision_count() > 0:
 		kunai_stuck()
 
-<<<<<<< Updated upstream
 func kunai_stuck():
 	stuck = true
 	velocity = Vector2.ZERO
@@ -53,7 +52,6 @@ func retrieve():
 	stuck = false
 	retrieving = true
 	sprite.play("Thrown")
-=======
+
 func kunai_remove():
 	queue_free()
->>>>>>> Stashed changes

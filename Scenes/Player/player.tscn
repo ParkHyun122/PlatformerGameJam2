@@ -142,7 +142,7 @@ target_position = Vector2(800, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=140697639]
 texture_filter = 1
-position = Vector2(-2, -3)
+position = Vector2(0, -3)
 scale = Vector2(1.2891196, 1.2764285)
 sprite_frames = SubResource("SpriteFrames_dey5f")
 animation = &"Idle"
