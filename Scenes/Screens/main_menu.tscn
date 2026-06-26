@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://80h274yf3666"]
+
+[ext_resource type="Script" uid="uid://b74sj0nmhrk00" path="res://Scripts/Screens/main_menu.gd" id="1_7uq44"]
+
+[node name="main_menu" type="Node2D" unique_id=191001771]
+script = ExtResource("1_7uq44")
+
+[node name="button_manager" type="Control" parent="." unique_id=446717709]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="button_manager" unique_id=1382010333]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 485.0
+offset_top = 151.0
+offset_right = 1399.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[node name="Help" type="Button" parent="button_manager" unique_id=282287794]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 464.0
+offset_right = 1417.0
+offset_bottom = 634.0
+text = "Help"
+
+[node name="Quit" type="Button" parent="button_manager" unique_id=197441228]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 771.0
+offset_right = 1422.0
+offset_bottom = 931.0
+text = "Quit
+"
+
+[connection signal="pressed" from="button_manager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="button_manager/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="button_manager/Quit" to="." method="_on_quit_pressed"]
