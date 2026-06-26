@@ -298,3 +298,4 @@ scale = Vector2(-33.83181, -0.51678604)
 position = Vector2(63, 1072)
 
 [connection signal="body_entered" from="Player/tackle_area" to="Player/FiniteStateMachine/CeilingHang" method="_on_body_entered"]
+[connection signal="body_exited" from="Player/tackle_area" to="Player/FiniteStateMachine/CeilingHang" method="_on_body_exited"]

@@ -21,6 +21,7 @@ var rightLimit
 func _ready():
 	leftLimit = global_position.x - patrol_limit
 	rightLimit = global_position.x + patrol_limit
+	add_to_group("enemy")
 
 
 func _physics_process(delta: float) -> void:

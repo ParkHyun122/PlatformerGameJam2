@@ -9,6 +9,7 @@ var ceiling_attach_grace := 0.05
 
 var just_entered := false
 var dropped_on_enemy 
+var enemy_attached
 
 func enter():
 	ceiling_attach_grace = 0.05
@@ -20,6 +21,12 @@ func enter():
 	dropped_on_enemy = false
 
 func physics_update(delta: float) -> void:
+	if dropped_on_enemy and Input.is_action_just_pressed("interact"):
+		print("tried to drop")
+		if enemy_attached:
+			enemy_attached.enemy_dropped_on()
+		transition("DropAttack")
+		return
 	if Input.is_action_just_pressed("zip"):
 		if player.can_zip_to_clingable():
 			transition("Zip")
@@ -33,10 +40,6 @@ func physics_update(delta: float) -> void:
 		just_entered = false
 	else:
 		
-		if dropped_on_enemy:
-			_drop_or_assassinate()
-			return
-			
 		if not _still_touching_clingable():
 			transition("Fall")
 			return
@@ -64,7 +67,7 @@ func _drop_or_assassinate() -> void:
 	transition("Fall")
 
 func _still_touching_clingable() -> bool:
-	print(player.get_slide_collision_count())
+	#print(player.get_slide_collision_count())
 
 	for i in player.get_slide_collision_count():
 		var collision := player.get_slide_collision(i)
@@ -99,15 +102,17 @@ func _find_enemy_below() -> Node:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if not body.is_in_group("enemies"):
-		return
+	#if not body.is_in_group("enemies"):
+		#return
 	dropped_on_enemy = true
-	player.target_enemy = body
+	player.drop_target_enemy = body
 	player.label.text = "press left mouse button to kill enemy"
+	enemy_attached = body
+	print("enemy in aread")
 
 func _on_body_exited(body: Node2D) -> void:
-	if body == player.target_enemy:
+	if body == player.drop_target_enemy:
 		dropped_on_enemy = false
-		player.target_enemy = null
+		player.drop_target_enemy = null
 		player.label.text = ""
 	
