@@ -1,10 +1,38 @@
 [gd_scene format=3 uid="uid://85pcnmc4jpkn"]
 
+[ext_resource type="Texture2D" uid="uid://dpb34vtuvnty1" path="res://Assets/maps/backgrounds/city_2002_1920X1340.png" id="1_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://2d5kl1qa4qu4" path="res://Scenes/Platform/simple_platform.tscn" id="1_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://banbl16u1mtw6" path="res://Scenes/Player/player.tscn" id="2_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://t4fp7j4rie76" path="res://Scenes/Platform/cling_platform.tscn" id="3_6uqi0"]
 
 [node name="Test" type="Node2D" unique_id=1519936627]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=647402245]
+scroll_offset = Vector2(0.58, 0)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2135110392]
+texture_filter = 1
+position = Vector2(-6.1035156e-05, 0)
+motion_scale = Vector2(0, 0.065)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=730860599]
+offset_left = -1.999939
+offset_top = 9.0
+offset_right = 1918.0
+offset_bottom = 1089.0
+texture = ExtResource("1_6uqi0")
+
+[node name="Control" type="Control" parent="." unique_id=1205479295]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -6.1035156e-05
+offset_right = 39.99994
+offset_bottom = 40.0
+
+[node name="Player" parent="." unique_id=1050035673 instance=ExtResource("2_6uqi0")]
+position = Vector2(-691, 1046)
+rotation = -0.0037710317
+scale = Vector2(0.6658675, 0.74102443)
 
 [node name="SimplePlatform" parent="." unique_id=174581043 instance=ExtResource("1_8uh7m")]
 position = Vector2(422.00003, 1184.0001)
@@ -13,11 +41,6 @@ scale = Vector2(3.353017, 1.6922292)
 [node name="SimplePlatform2" parent="." unique_id=1055585938 instance=ExtResource("1_8uh7m")]
 position = Vector2(230.00002, 637)
 scale = Vector2(2.7881336, 3.1399503)
-
-[node name="Player" parent="." unique_id=1050035673 instance=ExtResource("2_6uqi0")]
-position = Vector2(-691, 1046)
-rotation = -0.0037710317
-scale = Vector2(0.6658675, 0.74102443)
 
 [node name="SimplePlatform3" parent="." unique_id=1682291444 instance=ExtResource("1_8uh7m")]
 position = Vector2(1654.9995, 642.0001)
