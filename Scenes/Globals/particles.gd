@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var kunai_wall: Node2D = $kunai_wall
+@onready var smoke: Node2D = $smoke
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
