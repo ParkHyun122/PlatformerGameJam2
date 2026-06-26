@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var raycast : RayCast2D = $CollisionShape2D/WallDetector
 @onready var main = get_tree().current_scene
 @onready var kunai = preload("res://Scenes/Player/kunai.tscn")
+var drop_target_enemy: Node2D = null
+@onready var label: Label = $UI/Label
 
 @export var max_speed := 200.0
 @export var acceleration := 1200.0

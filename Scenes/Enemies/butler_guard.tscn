@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dejtb47s8ok4"]
+
+[ext_resource type="Script" uid="uid://yp1a2wlnrday" path="res://Scripts/Enemies/butler_guard.gd" id="1_6qhg6"]
+[ext_resource type="Texture2D" uid="uid://u5pbjjfheyjp" path="res://Assets/spritesheets/enemies/butlerguard.png" id="1_pofro"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qhg6"]
+size = Vector2(50, 98)
+
+[node name="butler_guard" type="CharacterBody2D" unique_id=1091548592]
+collision_layer = 4
+script = ExtResource("1_6qhg6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=772823962]
+root_node = NodePath("../CollisionShape2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=799383460]
+texture_filter = 1
+texture = ExtResource("1_pofro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=690354051]
+position = Vector2(4, 13)
+shape = SubResource("RectangleShape2D_6qhg6")

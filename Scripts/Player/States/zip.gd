@@ -11,14 +11,17 @@ var target_point: Vector2
 func enter():
 	print("State = Zip")
 
-	player.movement_velocity = Vector2.ZERO
+	player.movement_velocity = Vector2.ZERO 
 	player.knockback_velocity = Vector2.ZERO
 
 	target_point = player.zip_target_point
 	player.wall_surface_normal = player.zip_surface_normal
 
 	player.sprite.play("Idle")
-
+	
+	#var dash_instance = Particles.dash.instatiate()
+	#dash_instance.global_position = player.global_position
+	#get_tree().current_scene.add_child(dash_instance)
 func physics_update(delta: float) -> void:
 	var to_target := target_point - player.global_position
 

@@ -15,6 +15,11 @@ func physics_update(delta: float):
 	if player.grace_period > 0:
 		player.grace_period -= delta
 		
+	
+
+	if player.is_on_floor():
+		transition("Idle")
+		return
 	if player.is_on_floor():
 		transition("Idle")
 		return

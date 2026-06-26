@@ -8,6 +8,7 @@ extends State
 var ceiling_attach_grace := 0.05
 
 var just_entered := false
+var dropped_on_enemy 
 
 func enter():
 	ceiling_attach_grace = 0.05
@@ -16,6 +17,7 @@ func enter():
 	player.movement_velocity = Vector2.ZERO
 	player.knockback_velocity = Vector2.ZERO
 	just_entered = true
+	dropped_on_enemy = false
 
 func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("zip"):
@@ -30,6 +32,11 @@ func physics_update(delta: float) -> void:
 	if just_entered:
 		just_entered = false
 	else:
+		
+		if dropped_on_enemy:
+			_drop_or_assassinate()
+			return
+			
 		if not _still_touching_clingable():
 			transition("Fall")
 			return
@@ -89,3 +96,18 @@ func _find_enemy_below() -> Node:
 		return collider
 
 	return null
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if not body.is_in_group("enemies"):
+		return
+	dropped_on_enemy = true
+	player.target_enemy = body
+	player.label.text = "press left mouse button to kill enemy"
+
+func _on_body_exited(body: Node2D) -> void:
+	if body == player.target_enemy:
+		dropped_on_enemy = false
+		player.target_enemy = null
+		player.label.text = ""
+	
