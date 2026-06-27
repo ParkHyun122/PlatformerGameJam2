@@ -43,9 +43,7 @@ func _move_along_wall() -> void:
 
 	var tangent := Vector2(-player.wall_surface_normal.y, player.wall_surface_normal.x)
 
-	var side_sign := -signf(player.wall_surface_normal.x)
-
-	var along_wall := tangent * input_x * side_sign * cling_move_speed
+	var along_wall := tangent * input_x * cling_move_speed
 	var into_wall := -player.wall_surface_normal * 30.0
 
 	player.movement_velocity = along_wall + into_wall

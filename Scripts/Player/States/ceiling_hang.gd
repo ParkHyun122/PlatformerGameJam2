@@ -3,7 +3,7 @@ extends State
 
 @onready var player: Player = $"../.."
 
-@export var cling_move_speed := 200.0
+@export var cling_move_speed := 300.0
 @export var drop_sway_speed := 180.0
 var ceiling_attach_grace := 0.05
 
