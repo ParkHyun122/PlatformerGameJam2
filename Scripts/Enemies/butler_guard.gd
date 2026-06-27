@@ -47,3 +47,9 @@ func enemy_dropped_on():
 	collision_layer = 0
 	collision_mask = 0
 	collision_shape_2d.set_deferred("disabled", true)
+
+
+func _on_kunai_entered(body: Node2D) -> void:
+	print("YOO kunai entered my robo body")
+	body.force_stick_to_moving_target(self)
+	

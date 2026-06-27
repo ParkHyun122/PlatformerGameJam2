@@ -14,6 +14,8 @@ func enter():
 	player.movement_velocity = Vector2.ZERO
 	player.knockback_velocity = Vector2.ZERO
 	just_entered = true
+	GlobalScript.curr_player_state = GlobalScript.PlayerStates.WALLCLING
+
 
 func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("zip"):

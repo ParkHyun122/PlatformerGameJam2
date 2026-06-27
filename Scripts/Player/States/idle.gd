@@ -9,6 +9,7 @@ func enter():
 	sprite.play("Idle")
 	player.grace_period = player.fall_grace_period
 	player.movement_velocity.y = 0
+	GlobalScript.curr_player_state = GlobalScript.PlayerStates.IDLE
 
 func physics_update(delta: float):
 	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):

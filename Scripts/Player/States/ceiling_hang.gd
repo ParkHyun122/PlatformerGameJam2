@@ -19,6 +19,8 @@ func enter():
 	player.knockback_velocity = Vector2.ZERO
 	just_entered = true
 	dropped_on_enemy = false
+	GlobalScript.curr_player_state = GlobalScript.PlayerStates.CELINGHANG
+
 
 func physics_update(delta: float) -> void:
 	if dropped_on_enemy and Input.is_action_just_pressed("interact"):

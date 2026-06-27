@@ -6,6 +6,8 @@ extends State
 func enter():
 	print("State = Run")
 	player.sprite.play("Move")
+	GlobalScript.curr_player_state = GlobalScript.PlayerStates.RUN
+
 
 func physics_update(delta: float):
 	var move_dir := player.get_x_input()

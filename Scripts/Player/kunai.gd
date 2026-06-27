@@ -15,6 +15,7 @@ func _ready() -> void:
 	global_position = spawnPos
 	global_rotation = spawnRot
 	add_collision_exception_with(player)
+	add_to_group("trigger")
 
 func _physics_process(delta: float) -> void:
 	if retrieving:
@@ -52,3 +53,16 @@ func retrieve():
 	sprite.play("Thrown")
 func kunai_remove():
 	queue_free()
+
+func force_stuck():
+	if not stuck and not retrieving:
+		
+		kunai_stuck()
+
+func force_stick_to_moving_target(target: Node2D) -> void:
+	if not stuck and not retrieving:
+		kunai_stuck()
+		var old_global_pos = global_position
+		get_parent().remove_child(self)
+		target.add_child(self)
+		global_position = old_global_pos

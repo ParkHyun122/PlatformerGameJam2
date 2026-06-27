@@ -20,3 +20,13 @@ texture = ExtResource("1_pofro")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=690354051]
 position = Vector2(4, 13)
 shape = SubResource("RectangleShape2D_6qhg6")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1241790953]
+collision_layer = 16
+collision_mask = 40
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1488146229]
+position = Vector2(4, 13)
+shape = SubResource("RectangleShape2D_6qhg6")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_kunai_entered"]

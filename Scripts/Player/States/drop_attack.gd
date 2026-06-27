@@ -26,6 +26,8 @@ func enter():
 
 	player.sprite.play("Assassinate")
 	_on_animation_finished()
+	GlobalScript.curr_player_state = GlobalScript.PlayerStates.DROPATTACK
+
 
 	#if not player.sprite.animation_finished.is_connected(_on_animation_finished):
 		#player.sprite.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)

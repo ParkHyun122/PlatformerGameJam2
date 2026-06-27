@@ -193,6 +193,7 @@ script = ExtResource("12_oikmp")
 metadata/_custom_type_script = "uid://2y37yx57ooc4"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=374039498]
+position = Vector2(0, -91)
 process_callback = 0
 position_smoothing_enabled = true
 
