@@ -7,6 +7,8 @@ func enter():
 	print("State = Fall")
 	player.sprite.play("Move")
 	player.movement_velocity.y = 0.0
+	GlobalScript.curr_player_state = GlobalScript.PlayerStates.FALL
+
 	
 func physics_update(delta: float):
 	if _check_clingable_collision():

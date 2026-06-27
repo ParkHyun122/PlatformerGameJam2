@@ -12,6 +12,8 @@ var target_location: Vector2
 func enter():
 	print("State = DropAttack")
 	target_enemy = player.drop_target_enemy
+	GlobalScript.curr_player_state = GlobalScript.PlayerStates.DROPATTACK
+
 
 	if target_enemy == null or not is_instance_valid(target_enemy):
 		transition("Fall")

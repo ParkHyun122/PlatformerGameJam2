@@ -1,11 +1,19 @@
 extends Node
 
+enum PlayerStates {
+	IDLE,
+	RUN,
+	JUMP,
+	CROUCH,
+	FALL,
+	WALLCLING,
+	ZIP,
+	CELINGHANG,
+	DROPATTACK
+}
 
-# Called when the node enters the scene tree for the first time.
+var curr_player_state : PlayerStates
+
 func _ready() -> void:
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	curr_player_state = PlayerStates.IDLE

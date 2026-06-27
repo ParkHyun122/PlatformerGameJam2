@@ -26,6 +26,7 @@ func enter():
 	player.sprite.play("Idle")
 	initial_point = player.global_position
 	_spawn_dash_smoke()
+	GlobalScript.curr_player_state = GlobalScript.PlayerStates.ZIP
 	
 	#var dash_instance = Particles.dash.instatiate()
 	#dash_instance.global_position = player.global_position
