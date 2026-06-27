@@ -8,6 +8,8 @@ func enter():
 	print("Before crouch:", player.scale)
 	player.scale = Vector2(1.0, 0.5) 
 	player.sprite.play("Move")
+	GlobalScript.curr_player_state = GlobalScript.PlayerStates.CROUCH
+
 	
 func physics_update(delta: float):
 	var move_dir := player.get_x_input()

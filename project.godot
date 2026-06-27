@@ -22,10 +22,8 @@ GlobalScript="*uid://xsey6roeiufj"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/window_width_override=1920
-window/size/window_height_override=1080
+window/size/viewport_width=1280
+window/size/viewport_height=896
 window/stretch/mode="viewport"
 
 [dotnet]
@@ -41,6 +39,7 @@ enabled=PackedStringArray("res://addons/finite_state_machine/plugin.cfg")
 player="the player."
 platforms="platforms in which actors can stand on"
 clingable="player can cling"
+enemies=""
 
 [input]
 

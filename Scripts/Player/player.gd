@@ -64,6 +64,7 @@ func update_zip_trace(trace: Line2D) -> void:
 func _ready() -> void:
 	zip_limit.visible = false;
 	raycast.target_position.x = zip_range
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("throw_kunai"):
@@ -78,7 +79,7 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = true
 	elif face_dir == 1.0:
 		sprite.flip_h = false
-
+	queue_redraw()
 	velocity = movement_velocity + knockback_velocity
 	move_and_slide()
 
@@ -128,7 +129,6 @@ func can_zip_to_clingable() -> bool:
 	if not raycast.is_colliding():
 		zip_limit.global_position = ray_tip
 		zip_limit.rotation = dir.angle()
-		print(zip_limit.global_position,global_position)
 		zip_limit.appear()
 		return false
 
@@ -137,7 +137,6 @@ func can_zip_to_clingable() -> bool:
 	if body == null or not body.is_in_group("clingable"):
 		zip_limit.global_position = ray_tip
 		zip_limit.rotation = dir.angle()
-		print(zip_limit.global_position,global_position)
 		zip_limit.appear()
 		return false
 
@@ -154,3 +153,23 @@ func start_cling_detach_lockout() -> void:
 
 func can_attach_to_clingable() -> bool:
 	return cling_detach_lockout <= 0.0
+
+func _draw() -> void:
+
+	if GlobalScript.curr_player_state == GlobalScript.PlayerStates.CELINGHANG:
+
+		return
+
+	if can_zip_to_clingable():
+
+		var from_pos = Vector2.ZERO
+
+		var to_pos = to_local(zip_target_point)
+
+		var line_color = Color.DARK_CYAN
+
+		var line_width = 3.0
+
+		var dash_length = 8.0
+
+		draw_dashed_line(from_pos, to_pos, line_color, line_width, dash_length)

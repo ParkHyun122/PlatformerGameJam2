@@ -9,6 +9,8 @@ func enter():
 	player.grace_period = 0.0
 	player.sprite.play("Move")
 	player.movement_velocity.y = player.jump_velocity
+	GlobalScript.curr_player_state = GlobalScript.PlayerStates.JUMP
+
 	
 func physics_update(delta: float):
 	if _check_clingable_collision():
