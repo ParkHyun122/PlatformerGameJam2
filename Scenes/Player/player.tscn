@@ -190,8 +190,6 @@ metadata/_custom_type_script = "uid://2y37yx57ooc4"
 
 [node name="DropAttack" type="Node" parent="FiniteStateMachine" unique_id=1705041901]
 script = ExtResource("12_oikmp")
-snap_offset = null
-id = null
 metadata/_custom_type_script = "uid://2y37yx57ooc4"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=374039498]

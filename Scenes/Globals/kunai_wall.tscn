@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b620ouamrniph"]
+
+[node name="kunai_wall" type="Node2D" unique_id=701617194]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=724706319]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=358068792]
+root_node = NodePath("../Sprite2D")

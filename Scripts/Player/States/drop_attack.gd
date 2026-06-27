@@ -31,12 +31,7 @@ func enter():
 		#player.sprite.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
 
 func physics_update(delta: float) -> void:
-	if player.global_position != target_location:
-		player.movement_velocity.x = move_toward(
-			player.movement_velocity.x,
-			target_x_velocity,
-			player.acceleration * delta
-		)
+	
 	
 	player.movement_velocity = Vector2.ZERO # hold still through the kill anim
 
