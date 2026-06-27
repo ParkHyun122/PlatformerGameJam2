@@ -11,11 +11,11 @@ var spawnPos : Vector2
 var spawnRot : float
 var stuck := false
 var retrieving := false
-
 func _ready() -> void:
 	sprite.play("Thrown")
 	global_position = spawnPos
 	global_rotation = spawnRot
+	add_collision_exception_with(player)
 
 func _physics_process(delta: float) -> void:
 	if retrieving:
@@ -28,7 +28,6 @@ func _physics_process(delta: float) -> void:
 		if global_position.distance_to(player.global_position) < 25:
 			player.current_kunai = null
 			queue_free()
-
 		return
 
 	if stuck:
@@ -44,6 +43,13 @@ func kunai_stuck():
 	stuck = true
 	velocity = Vector2.ZERO
 	sprite.stop()
+	_spawn_hit_fx()
+
+func _spawn_hit_fx() -> void:
+	var fx = Particles.KUNAI_WALL.instantiate()
+	fx.global_position = global_position
+	fx.rotation = global_rotation
+	get_tree().current_scene.add_child(fx)
 	
 func retrieve():
 	stuck = false

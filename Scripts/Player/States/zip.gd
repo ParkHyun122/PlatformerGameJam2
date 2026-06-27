@@ -5,6 +5,9 @@ extends State
 
 @export var zip_speed := 2200.0
 @export var wall_offset := 6.0
+var current_zip
+var initial_point
+var particle_offset : Vector2 = Vector2(0,-32)
 
 signal state_entered
 
@@ -21,6 +24,8 @@ func enter():
 	player.wall_surface_normal = player.zip_surface_normal
 
 	player.sprite.play("Idle")
+	initial_point = player.global_position
+	_spawn_dash_smoke()
 	
 	#var dash_instance = Particles.dash.instatiate()
 	#dash_instance.global_position = player.global_position
@@ -31,7 +36,7 @@ func physics_update(delta: float) -> void:
 	if to_target == Vector2.ZERO:
 		_finish_zip()
 		return
-
+	
 	player.movement_velocity = to_target.normalized() * zip_speed
 	player.knockback_velocity = Vector2.ZERO
 
@@ -74,3 +79,18 @@ func _finish_zip() -> void:
 		transition("CeilingHang")
 	else:
 		transition("WallCling")
+func _spawn_zip():
+	
+	var zip = Particles.ZIP.instantiate() 
+	zip.rotation = player.get_mouse_dir().angle()
+	zip.global_position = initial_point - particle_offset
+	get_tree().current_scene.add_child(zip)
+
+	
+func _spawn_dash_smoke() -> void:
+	_spawn_zip()
+	var smoke = Particles.SMOKE.instantiate()
+	smoke.global_position = initial_point - particle_offset
+	get_tree().current_scene.add_child(smoke)
+
+	

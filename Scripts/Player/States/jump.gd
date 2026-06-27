@@ -5,6 +5,7 @@ extends State
 
 func enter():
 	print("State = Jump")
+	print("JUMP ENTERED")
 	player.grace_period = 0.0
 	player.sprite.play("Move")
 	player.movement_velocity.y = player.jump_velocity

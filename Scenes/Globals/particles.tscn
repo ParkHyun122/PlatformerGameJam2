@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://f3tq1bt13gmw"]
 
+[ext_resource type="Script" uid="uid://bms0ufrh80x28" path="res://Scenes/Globals/particles.gd" id="1_bmndv"]
+[ext_resource type="PackedScene" uid="uid://b620ouamrniph" path="res://Scenes/Globals/kunai_wall.tscn" id="2_bmndv"]
+[ext_resource type="PackedScene" uid="uid://yuhjkbfmchm8" path="res://Scenes/Globals/zip.tscn" id="3_bmndv"]
+[ext_resource type="PackedScene" uid="uid://ni1v55e26uc2" path="res://Scenes/Globals/smoke.tscn" id="3_px2lk"]
 [ext_resource type="Script" uid="uid://bms0ufrh80x28" path="res://Scripts/particles.gd" id="1_bmndv"]
 [ext_resource type="PackedScene" uid="uid://dc1k6bvv1d44d" path="res://Scenes/Effects/zip_flash.tscn" id="3_bmndv"]
 [ext_resource type="PackedScene" uid="uid://bdse1l7v2jdpq" path="res://Scenes/Effects/smoke.tscn" id="3_px2lk"]
@@ -7,6 +11,10 @@
 [node name="Particles" type="Node2D" unique_id=1516214655]
 script = ExtResource("1_bmndv")
 
+[node name="smoke" parent="." unique_id=2090637263 instance=ExtResource("3_px2lk")]
+
+[node name="zip" parent="." unique_id=236281041 instance=ExtResource("3_bmndv")]
 [node name="Smoke" parent="." unique_id=134963647 instance=ExtResource("3_px2lk")]
 
+[node name="kunai_wall" parent="." unique_id=264479876 instance=ExtResource("2_bmndv")]
 [node name="zip_flash" parent="." unique_id=1805826524 instance=ExtResource("3_bmndv")]
