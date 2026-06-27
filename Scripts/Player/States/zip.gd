@@ -6,11 +6,14 @@ extends State
 @export var zip_speed := 2200.0
 @export var wall_offset := 6.0
 
+signal state_entered
+
 var target_point: Vector2
 
 func enter():
 	print("State = Zip")
 
+	player.zip_effect()
 	player.movement_velocity = Vector2.ZERO 
 	player.knockback_velocity = Vector2.ZERO
 

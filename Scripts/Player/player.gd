@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var kunai = preload("res://Scenes/Player/kunai.tscn")
 var drop_target_enemy: Node2D = null
 @onready var label: Label = $UI/Label
+@onready var smoke = preload("res://Scenes/Effects/smoke.tscn")
+@onready var flash = preload("res://Scenes/Effects/zip_flash.tscn")
 
 @export var max_speed := 200.0
 @export var acceleration := 1200.0
@@ -143,3 +145,18 @@ func start_cling_detach_lockout() -> void:
 
 func can_attach_to_clingable() -> bool:
 	return cling_detach_lockout <= 0.0
+
+func zip_effect() :	
+	var effect_position = global_position
+	
+	if is_on_floor():
+		var smoke_instance = smoke.instantiate()
+		smoke_instance.global_position = effect_position
+		smoke_instance.global_position.y += 20
+		main.add_child.call_deferred(smoke_instance)
+	
+	var zip_flash_instance = flash.instantiate()
+	zip_flash_instance.global_position = effect_position
+	zip_flash_instance.global_position.y -= 30
+	zip_flash_instance.rotation = get_mouse_dir().angle()
+	main.add_child.call_deferred(zip_flash_instance)

@@ -1,72 +1,12 @@
 [gd_scene format=3 uid="uid://f3tq1bt13gmw"]
 
-[ext_resource type="Texture2D" uid="uid://32igl6ypupl" path="res://Assets/spritesheets/player/smoke.png" id="1_3fhpi"]
-[ext_resource type="Script" uid="uid://bms0ufrh80x28" path="res://Scenes/Globals/particles.gd" id="1_bmndv"]
-[ext_resource type="Texture2D" uid="uid://4v6tndc0eykd" path="res://Assets/spritesheets/player/zip_flash.png" id="1_rc2pg"]
-
-[sub_resource type="Animation" id="Animation_kjsi8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_e0sk8"]
-resource_name = "idle"
-length = 0.5
-step = 0.025
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_o1g5i"]
-_data = {
-&"RESET": SubResource("Animation_kjsi8"),
-&"idle": SubResource("Animation_e0sk8")
-}
+[ext_resource type="Script" uid="uid://bms0ufrh80x28" path="res://Scripts/particles.gd" id="1_bmndv"]
+[ext_resource type="PackedScene" uid="uid://dc1k6bvv1d44d" path="res://Scenes/Effects/zip_flash.tscn" id="3_bmndv"]
+[ext_resource type="PackedScene" uid="uid://bdse1l7v2jdpq" path="res://Scenes/Effects/smoke.tscn" id="3_px2lk"]
 
 [node name="Particles" type="Node2D" unique_id=1516214655]
 script = ExtResource("1_bmndv")
 
-[node name="kunai_wall" type="Node2D" parent="." unique_id=1276873069]
+[node name="Smoke" parent="." unique_id=134963647 instance=ExtResource("3_px2lk")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="kunai_wall" unique_id=2130103978]
-root_node = NodePath("../Sprite2D")
-libraries/ = SubResource("AnimationLibrary_o1g5i")
-autoplay = &"idle"
-
-[node name="Sprite2D" type="Sprite2D" parent="kunai_wall" unique_id=988231470]
-texture_filter = 1
-texture = ExtResource("1_rc2pg")
-hframes = 2
-vframes = 2
-
-[node name="smoke" type="Node2D" parent="." unique_id=99365071]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="smoke" unique_id=850691943]
-root_node = NodePath("../Sprite2D")
-libraries/ = SubResource("AnimationLibrary_o1g5i")
-autoplay = &"idle"
-
-[node name="Sprite2D" type="Sprite2D" parent="smoke" unique_id=1211123003]
-texture_filter = 1
-texture = ExtResource("1_3fhpi")
-hframes = 3
-vframes = 2
+[node name="zip_flash" parent="." unique_id=1805826524 instance=ExtResource("3_bmndv")]

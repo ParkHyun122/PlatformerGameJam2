@@ -2,7 +2,8 @@ class_name Kunai
 extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@export var SPEED = 300.0
+@export var throw_speed = 2000.0
+@export var retrieval_speed = 2200.0
 
 var player : Player
 var dir : float
@@ -21,10 +22,10 @@ func _physics_process(delta: float) -> void:
 		dir = (player.global_position - global_position).angle()
 		global_rotation = dir
 
-		velocity = Vector2.RIGHT.rotated(dir) * SPEED
+		velocity = Vector2.RIGHT.rotated(dir) * retrieval_speed
 		move_and_slide()
 
-		if global_position.distance_to(player.global_position) < 16:
+		if global_position.distance_to(player.global_position) < 25:
 			player.current_kunai = null
 			queue_free()
 
@@ -33,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	if stuck:
 		return
 
-	velocity = Vector2.RIGHT.rotated(dir) * SPEED
+	velocity = Vector2.RIGHT.rotated(dir) * throw_speed
 	move_and_slide()
 
 	if get_slide_collision_count() > 0:

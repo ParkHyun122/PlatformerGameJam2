@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bdse1l7v2jdpq"]
+
+[ext_resource type="Script" uid="uid://b7yqodd1wehfg" path="res://Scripts/Effects/smoke.gd" id="1_4v663"]
+[ext_resource type="Texture2D" uid="uid://32igl6ypupl" path="res://Assets/spritesheets/player/smoke.png" id="1_qo0dl"]
+
+[sub_resource type="Animation" id="Animation_4v663"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qo0dl"]
+resource_name = "zip_flash"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4v663"]
+_data = {
+&"RESET": SubResource("Animation_4v663"),
+&"smoke": SubResource("Animation_qo0dl")
+}
+
+[node name="Smoke" type="Node2D" unique_id=134963647]
+script = ExtResource("1_4v663")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1738285262]
+libraries/ = SubResource("AnimationLibrary_4v663")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1605452782]
+texture = ExtResource("1_qo0dl")
+hframes = 3
+vframes = 2
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2062020119]
