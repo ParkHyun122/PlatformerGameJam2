@@ -120,6 +120,7 @@ var zip_target_point := Vector2.ZERO
 var zip_surface_normal := Vector2.ZERO
 
 func can_zip_to_clingable() -> bool:
+	print("this?")
 	var dir := get_snapped_dir(get_mouse_dir())
 
 	raycast.rotation = dir.angle()
@@ -133,7 +134,6 @@ func can_zip_to_clingable() -> bool:
 		return false
 
 	var body := raycast.get_collider() as Node
-
 	if body == null or not body.is_in_group("clingable"):
 		zip_limit.global_position = ray_tip
 		zip_limit.rotation = dir.angle()
