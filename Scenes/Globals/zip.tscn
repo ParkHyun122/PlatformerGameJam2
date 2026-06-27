@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://4v6tndc0eykd" path="res://Assets/spritesheets/player/zip_flash.png" id="1_krnld"]
 [ext_resource type="Script" uid="uid://dy48335p6r7or" path="res://Scenes/Globals/oneshots.gd" id="1_uemlm"]
+[ext_resource type="AudioStream" uid="uid://dv7ir40k5msl1" path="res://Assets/effects/sfx/zoom.wav" id="2_djiai"]
 
 [sub_resource type="Animation" id="Animation_kjsi8"]
 length = 0.001
@@ -48,6 +49,21 @@ tracks/1/keys = {
 "method": &"del"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.5400001,
+"start_offset": 0.0,
+"stream": ExtResource("2_djiai")
+}],
+"times": PackedFloat32Array(0.024999976)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o1g5i"]
 _data = {
@@ -69,3 +85,5 @@ scale = Vector2(3, 3)
 texture = ExtResource("1_krnld")
 hframes = 2
 vframes = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1004350433]

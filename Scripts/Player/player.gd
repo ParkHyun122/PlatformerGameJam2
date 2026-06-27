@@ -7,8 +7,7 @@ extends CharacterBody2D
 @onready var kunai = preload("res://Scenes/Player/kunai.tscn")
 var drop_target_enemy: Node2D = null
 @onready var label: Label = $UI/Label
-@onready var smoke = preload("res://Scenes/Effects/smoke.tscn")
-@onready var flash = preload("res://Scenes/Effects/zip_flash.tscn")
+@onready var zip_limit: limit = $limit
 
 @export var max_speed := 200.0
 @export var acceleration := 1200.0
@@ -63,6 +62,7 @@ func update_zip_trace(trace: Line2D) -> void:
 		trace.default_color = Color.RED
 		trace.points = [Vector2.ZERO, dir * zip_range]
 func _ready() -> void:
+	zip_limit.visible = false;
 	raycast.target_position.x = zip_range
 
 func _physics_process(delta: float) -> void:
@@ -123,13 +123,22 @@ func can_zip_to_clingable() -> bool:
 
 	raycast.rotation = dir.angle()
 	raycast.force_raycast_update()
+	var ray_tip := raycast.to_global(raycast.target_position)
 
 	if not raycast.is_colliding():
+		zip_limit.global_position = ray_tip
+		zip_limit.rotation = dir.angle()
+		print(zip_limit.global_position,global_position)
+		zip_limit.appear()
 		return false
 
 	var body := raycast.get_collider() as Node
 
 	if body == null or not body.is_in_group("clingable"):
+		zip_limit.global_position = ray_tip
+		zip_limit.rotation = dir.angle()
+		print(zip_limit.global_position,global_position)
+		zip_limit.appear()
 		return false
 
 	var hit_point := raycast.get_collision_point()
@@ -145,18 +154,3 @@ func start_cling_detach_lockout() -> void:
 
 func can_attach_to_clingable() -> bool:
 	return cling_detach_lockout <= 0.0
-
-func zip_effect() :	
-	var effect_position = global_position
-	
-	if is_on_floor():
-		var smoke_instance = smoke.instantiate()
-		smoke_instance.global_position = effect_position
-		smoke_instance.global_position.y += 20
-		main.add_child.call_deferred(smoke_instance)
-	
-	var zip_flash_instance = flash.instantiate()
-	zip_flash_instance.global_position = effect_position
-	zip_flash_instance.global_position.y -= 30
-	zip_flash_instance.rotation = get_mouse_dir().angle()
-	main.add_child.call_deferred(zip_flash_instance)

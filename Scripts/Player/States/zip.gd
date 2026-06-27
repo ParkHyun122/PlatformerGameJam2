@@ -16,7 +16,7 @@ var target_point: Vector2
 func enter():
 	print("State = Zip")
 
-	player.zip_effect()
+	#player.zip_effect()
 	player.movement_velocity = Vector2.ZERO 
 	player.knockback_velocity = Vector2.ZERO
 
