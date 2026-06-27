@@ -7,6 +7,7 @@ extends State
 @export var snap_offset := Vector2(0, -10) 
 
 var target_enemy: Node2D
+var target_location: Vector2
 
 func enter():
 	print("State = DropAttack")
@@ -17,7 +18,7 @@ func enter():
 		return
 
 	# snap onto him instead of resolving wherever physics happened to leave you
-	player.global_position = target_enemy.global_position + snap_offset
+	target_location = target_enemy.global_position + snap_offset
 	player.movement_velocity = Vector2.ZERO
 	player.knockback_velocity = Vector2.ZERO
 	player.velocity = Vector2.ZERO
@@ -30,6 +31,13 @@ func enter():
 		#player.sprite.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
 
 func physics_update(delta: float) -> void:
+	if player.global_position != target_location:
+		player.movement_velocity.x = move_toward(
+			player.movement_velocity.x,
+			target_x_velocity,
+			player.acceleration * delta
+		)
+	
 	player.movement_velocity = Vector2.ZERO # hold still through the kill anim
 
 func _on_animation_finished():

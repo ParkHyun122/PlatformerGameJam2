@@ -13,7 +13,7 @@ config_version=5
 config/name="PlatformerGameJam2"
 run/main_scene="uid://85pcnmc4jpkn"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cupmmdg7jxa8h"
 
 [autoload]
 

@@ -9,13 +9,13 @@ func enter():
 
 func physics_update(delta: float):
 	var move_dir := player.get_x_input()
-
+	if Input.is_action_pressed("jump"):
+		transition("Jump")
+		return
 	if !player.is_on_floor():
 		transition("Fall")
 		return
-	elif Input.is_action_pressed("jump"):
-		transition("Jump")
-		return
+	
 	elif Input.is_action_pressed("crouch"):
 		transition("Crouch")
 		return

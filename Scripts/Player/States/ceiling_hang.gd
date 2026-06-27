@@ -106,7 +106,7 @@ func _on_body_entered(body: Node2D) -> void:
 		#return
 	dropped_on_enemy = true
 	player.drop_target_enemy = body
-	player.label.text = "press left mouse button to kill enemy"
+	player.label.text = "Press [E] to KIll"
 	enemy_attached = body
 	print("enemy in aread")
 
