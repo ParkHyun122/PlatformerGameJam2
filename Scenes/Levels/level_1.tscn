@@ -463,13 +463,3 @@ scale = Vector2(1.3050036, 108.5692)
 position = Vector2(2345, -526)
 collision_layer = 20
 collision_mask = 32
-
-[node name="button2" parent="." unique_id=145452977 instance=ExtResource("5_cyadu")]
-position = Vector2(1138, -574)
-collision_layer = 20
-collision_mask = 32
-
-[node name="button3" parent="." unique_id=1741583667 instance=ExtResource("5_cyadu")]
-position = Vector2(1311, -560)
-collision_layer = 20
-collision_mask = 32

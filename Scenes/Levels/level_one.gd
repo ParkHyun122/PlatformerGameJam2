@@ -17,13 +17,15 @@ var door_target_y
 
 
 func _ready() -> void:
-	door_target_y = door1.global_position.y - 512
+	if door1:
+		door_target_y = door1.global_position.y - 512
 	 
 func door_hit():
 	is_door_hit = true
 
 
 func _process(delta: float) -> void:
+	if not door1: return
 	if is_door_hit:
 		door1.global_position.y = move_toward(door1.global_position.y, door_target_y, door_speed * delta)
 	if door1.global_position.y <= door_target_y:

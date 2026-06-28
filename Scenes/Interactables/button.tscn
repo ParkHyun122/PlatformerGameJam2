@@ -95,5 +95,7 @@ hframes = 5
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_84ywo")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=12511079]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
