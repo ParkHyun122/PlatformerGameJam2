@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://t4fp7j4rie76" path="res://Scenes/Platform/cling_platform.tscn" id="3_3mqfk"]
 [ext_resource type="PackedScene" uid="uid://dejtb47s8ok4" path="res://Scenes/Enemies/butler_guard.tscn" id="4_iixi8"]
 [ext_resource type="PackedScene" uid="uid://c7onocjkgwvn4" path="res://Scenes/Interactables/button.tscn" id="5_cyadu"]
+[ext_resource type="Texture2D" uid="uid://dpo4tfdih1bqb" path="res://Assets/maps/backgrounds/background1.png" id="7_5f3p6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dpyx"]
 texture = ExtResource("1_tlcug")
@@ -444,3 +445,26 @@ scale = Vector2(1.3050036, 108.5692)
 position = Vector2(2345, -526)
 collision_layer = 20
 collision_mask = 32
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=580614245]
+scroll_offset = Vector2(0.58, 0)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=80949522]
+texture_filter = 1
+position = Vector2(-1991, 928)
+motion_scale = Vector2(0.65, 0.65)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1324223230]
+offset_left = 1842.0
+offset_top = -2581.0
+offset_right = 4282.0
+offset_bottom = -1081.0
+texture = ExtResource("7_5f3p6")
+
+[node name="Control" type="Control" parent="." unique_id=1048198571]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1841.0
+offset_top = -2583.0
+offset_right = 1841.0
+offset_bottom = -2543.0
