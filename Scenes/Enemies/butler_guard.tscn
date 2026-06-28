@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://yp1a2wlnrday" path="res://Scripts/Enemies/butler_guard.gd" id="1_6qhg6"]
 [ext_resource type="Texture2D" uid="uid://u5pbjjfheyjp" path="res://Assets/spritesheets/enemies/butlerguard.png" id="1_pofro"]
+[ext_resource type="PackedScene" uid="uid://dji3vcibx1v5b" path="res://Scenes/Enemies/flashlight.tscn" id="3_fq5jr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qhg6"]
 size = Vector2(50, 98)
@@ -20,3 +21,6 @@ texture = ExtResource("1_pofro")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=690354051]
 position = Vector2(4, 13)
 shape = SubResource("RectangleShape2D_6qhg6")
+
+[node name="Flashlight" parent="." unique_id=1503328791 instance=ExtResource("3_fq5jr")]
+position = Vector2(5, -45)

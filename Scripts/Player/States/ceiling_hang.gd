@@ -69,7 +69,7 @@ func _drop_or_assassinate() -> void:
 	transition("Fall")
 
 func _still_touching_clingable() -> bool:
-	#print(player.get_slide_collision_count())
+
 	for i in player.get_slide_collision_count():
 		var collision := player.get_slide_collision(i)
 		var collider := collision.get_collider() as Node
