@@ -3,10 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://b662b6vrtuqkc" path="res://Assets/spritesheets/kunai_sheet.png" id="1_hmhcd"]
 [ext_resource type="Script" uid="uid://f7mem0ltquif" path="res://Scripts/Player/kunai.gd" id="1_og1pr"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_og1pr"]
-radius = 5.0
-height = 24.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1d6m"]
 atlas = ExtResource("1_hmhcd")
 region = Rect2(0, 0, 32, 32)
@@ -43,6 +39,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_og1pr"]
+radius = 5.0
+
 [node name="Kunai" type="CharacterBody2D" unique_id=1413344923]
 z_index = -1
 collision_layer = 32
@@ -51,13 +50,12 @@ script = ExtResource("1_og1pr")
 throw_speed = 1600.0
 retrieval_speed = 2000.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2102136272]
-position = Vector2(-3, 0)
-rotation = -1.5707964
-shape = SubResource("CapsuleShape2D_og1pr")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=903719015]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_jl2j6")
 animation = &"Thrown"
 frame_progress = 0.25927463
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2102136272]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_og1pr")
