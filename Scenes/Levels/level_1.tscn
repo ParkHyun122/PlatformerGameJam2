@@ -436,7 +436,7 @@ position = Vector2(177, -149)
 
 [node name="cling_platform" parent="." unique_id=2026071829 instance=ExtResource("3_3mqfk")]
 position = Vector2(3839, -756)
-scale = Vector2(-47.954544, -1.25)
+scale = Vector2(-15.975, -1.25)
 
 [node name="butler_guard" parent="." unique_id=1091548592 instance=ExtResource("4_iixi8")]
 position = Vector2(3847, -191)
@@ -444,16 +444,16 @@ patrol_limit = 324.0
 
 [node name="cling_platform2" parent="." unique_id=1331800003 instance=ExtResource("3_3mqfk")]
 position = Vector2(6337.0005, -2034)
-scale = Vector2(127.26482, -1.7064952)
+scale = Vector2(43.43, -1.706)
 
 [node name="cling_platform3" parent="." unique_id=583464047 instance=ExtResource("3_3mqfk")]
-position = Vector2(6946.0005, -1521)
-scale = Vector2(17.931278, 1.4663776)
+position = Vector2(6766.0005, -1524)
+scale = Vector2(27.541, 1.466)
 
 [node name="cling_platform5" parent="." unique_id=1425404821 instance=ExtResource("3_3mqfk")]
-position = Vector2(5300, -961.00006)
+position = Vector2(5300.0005, -964.99994)
 rotation = 1.5721878
-scale = Vector2(87.95746, -1.5128651)
+scale = Vector2(27.812, -1.513)
 
 [node name="cling_platform6" parent="." unique_id=1067590753 instance=ExtResource("3_3mqfk")]
 position = Vector2(6154.0005, -671.00006)
@@ -461,5 +461,15 @@ scale = Vector2(1.3050036, 108.5692)
 
 [node name="button" parent="." unique_id=1765167497 instance=ExtResource("5_cyadu")]
 position = Vector2(2345, -526)
+collision_layer = 20
+collision_mask = 32
+
+[node name="button2" parent="." unique_id=145452977 instance=ExtResource("5_cyadu")]
+position = Vector2(1138, -574)
+collision_layer = 20
+collision_mask = 32
+
+[node name="button3" parent="." unique_id=1741583667 instance=ExtResource("5_cyadu")]
+position = Vector2(1311, -560)
 collision_layer = 20
 collision_mask = 32
