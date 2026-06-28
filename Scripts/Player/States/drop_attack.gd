@@ -4,7 +4,7 @@ extends State
 @onready var player: Player = $"../.."
 
 @export var snap_offset := Vector2.ZERO
-@export var drop_speed := 1200.0
+@export var drop_speed := 1300.0
 @export var kill_enable_delay := 0.08
 
 var target_enemy: Node2D
@@ -32,6 +32,12 @@ func enter():
 	player.sprite.play("Fall")
 
 func physics_update(delta: float) -> void:
+	
+	player.afterimage_timer -= delta
+	if player.afterimage_timer <= 0.0:
+		player.afterimage_timer = player.afterimage_interval
+		player.spawn_afterimage()
+	
 	if target_enemy == null or not is_instance_valid(target_enemy):
 		player.movement_velocity = Vector2.ZERO
 		player.drop_target_enemy = null

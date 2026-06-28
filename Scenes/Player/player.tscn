@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://banbl16u1mtw6"]
 
 [ext_resource type="Script" uid="uid://ccktpb3n34jt5" path="res://Scripts/Player/player.gd" id="1_a3d8c"]
+[ext_resource type="PackedScene" uid="uid://lubwshilodim" path="res://Scenes/Player/after_image.tscn" id="2_7g0yx"]
 [ext_resource type="Texture2D" uid="uid://cn6xwq03ql7r2" path="res://Assets/spritesheets/spaceninja_sheet1.png" id="2_jhyir"]
 [ext_resource type="Script" uid="uid://doejhfgthu4ky" path="res://addons/finite_state_machine/finite_state_machine.gd" id="3_mtuoh"]
 [ext_resource type="Script" uid="uid://cdj0mkjpeckwl" path="res://Scripts/Player/States/idle.gd" id="4_htcer"]
@@ -133,6 +134,7 @@ decel_x_while_fall = 2000.0
 jump_velocity = -950.0
 fall_grace_period = 0.1
 wall_jump_x_velocity = 500.0
+afterimage_scene = ExtResource("2_7g0yx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2090277876]
 position = Vector2(2.842171e-14, 20)
@@ -223,6 +225,8 @@ size_flags_horizontal = 4
 
 [node name="limit" parent="." unique_id=1071865757 instance=ExtResource("13_06tpx")]
 z_index = 2
+
+[node name="AfterImage" parent="." unique_id=124768725 instance=ExtResource("2_7g0yx")]
 
 [connection signal="body_entered" from="tackle_area" to="FiniteStateMachine/CeilingHang" method="_on_body_entered"]
 [connection signal="body_exited" from="tackle_area" to="FiniteStateMachine/CeilingHang" method="_on_body_exited"]
