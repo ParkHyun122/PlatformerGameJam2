@@ -24,10 +24,8 @@ func enter():
 
 func physics_update(delta: float) -> void:
 	if dropped_on_enemy and Input.is_action_just_pressed("interact"):
-		print("tried to drop")
 		if enemy_attached:
-			enemy_attached.enemy_dropped_on()
-		transition("DropAttack")
+			transition("DropAttack")
 		return
 	if Input.is_action_just_pressed("zip"):
 		if player.can_zip_to_clingable():
@@ -100,7 +98,6 @@ func _find_enemy_below() -> Node:
 		return collider
 
 	return null
-
 
 func _on_body_entered(body: Node2D) -> void:
 	#if not body.is_in_group("enemies"):

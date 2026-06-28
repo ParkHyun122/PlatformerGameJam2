@@ -25,7 +25,9 @@ var drop_target_enemy: Node2D = null
 @export var wall_jump_x_velocity := 300.0
 @export var cling_check_distance := 24.0
 @export var cling_detach_lockout_max := 0.2
+@export var ceiling_detach_lockout_max := 0.2
 
+var ceiling_detach_lockout := 0.0
 var cling_detach_lockout := 0.0
 var grace_period := 0.0
 var movement_velocity := Vector2.ZERO
@@ -67,6 +69,10 @@ func _ready() -> void:
 	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
+	
+	if ceiling_detach_lockout > 0.0:
+		ceiling_detach_lockout -= delta
+		
 	if Input.is_action_just_pressed("throw_kunai"):
 		throw_or_retrieve_kunai()
 		
@@ -120,7 +126,6 @@ var zip_target_point := Vector2.ZERO
 var zip_surface_normal := Vector2.ZERO
 
 func can_zip_to_clingable() -> bool:
-	print("this?")
 	var dir := get_snapped_dir(get_mouse_dir())
 
 	raycast.rotation = dir.angle()
@@ -178,3 +183,9 @@ func get_caught() -> void:
 	print("PLAYER CAUGHT")
 	# temporary death logic
 	queue_free()
+
+func start_ceiling_detach_lockout() -> void:
+	ceiling_detach_lockout = ceiling_detach_lockout_max
+
+func can_attach_to_ceiling() -> bool:
+	return ceiling_detach_lockout <= 0.0

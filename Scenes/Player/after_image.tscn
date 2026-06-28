@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://lubwshilodim"]
+
+[node name="AfterImage" type="Node2D" unique_id=537552066]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=396737493]

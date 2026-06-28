@@ -63,3 +63,6 @@ func start_turn_wait() -> void:
 
 func update_flashlight_direction() -> void:
 	flashlight.scale.x = dir
+
+func enemy_dropped_on() -> void:
+	queue_free()
