@@ -32,6 +32,11 @@ func enter():
 	#dash_instance.global_position = player.global_position
 	#get_tree().current_scene.add_child(dash_instance)
 func physics_update(delta: float) -> void:
+	player.afterimage_timer -= delta
+	if player.afterimage_timer <= 0.0:
+		player.afterimage_timer = player.afterimage_interval
+		player.spawn_afterimage()
+	
 	var to_target := target_point - player.global_position
 
 	if to_target == Vector2.ZERO:

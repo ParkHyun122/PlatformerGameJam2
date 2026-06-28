@@ -26,7 +26,10 @@ var drop_target_enemy: Node2D = null
 @export var cling_check_distance := 24.0
 @export var cling_detach_lockout_max := 0.2
 @export var ceiling_detach_lockout_max := 0.2
+@export var afterimage_scene: PackedScene
+@export var afterimage_interval := 0.04
 
+var afterimage_timer := 0.0
 var ceiling_detach_lockout := 0.0
 var cling_detach_lockout := 0.0
 var grace_period := 0.0
@@ -189,3 +192,16 @@ func start_ceiling_detach_lockout() -> void:
 
 func can_attach_to_ceiling() -> bool:
 	return ceiling_detach_lockout <= 0.0
+	
+func spawn_afterimage() -> void:
+	var ghost := afterimage_scene.instantiate() as Sprite2D
+	main.add_child(ghost)
+
+	ghost.global_position = sprite.global_position
+	ghost.global_rotation = sprite.global_rotation
+	ghost.global_scale = sprite.global_scale
+	ghost.texture = sprite.sprite_frames.get_frame_texture(sprite.animation, sprite.frame)
+	ghost.flip_h = sprite.flip_h
+	ghost.modulate = Color(1, 1, 1, 0.45)
+
+	ghost.start()

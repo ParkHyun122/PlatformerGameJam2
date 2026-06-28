@@ -18,28 +18,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 485.0
-offset_top = 151.0
-offset_right = 1399.0
-offset_bottom = 321.0
+offset_left = 142.0
+offset_top = 54.0
+offset_right = 1056.0
+offset_bottom = 224.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Start"
 
 [node name="Help" type="Button" parent="button_manager" unique_id=282287794]
 layout_mode = 0
-offset_left = 503.0
-offset_top = 464.0
-offset_right = 1417.0
-offset_bottom = 634.0
+offset_left = 160.0
+offset_top = 367.0
+offset_right = 1074.0
+offset_bottom = 537.0
 text = "Help"
 
 [node name="Quit" type="Button" parent="button_manager" unique_id=197441228]
 layout_mode = 0
-offset_left = 500.0
-offset_top = 771.0
-offset_right = 1422.0
-offset_bottom = 931.0
+offset_left = 157.0
+offset_top = 674.0
+offset_right = 1079.0
+offset_bottom = 834.0
 text = "Quit
 "
 

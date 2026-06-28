@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var flashlight: Flashlight = $Flashlight
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var warning: Sprite2D = $warning
 
 @export var turn_pause := 1.0
 @export var patrol_limit: float = 200.0
@@ -25,6 +26,12 @@ var waiting_to_turn := false
 var turn_timer := 0.0
 
 func _ready() -> void:
+	
+	warning.visible = false
+
+	flashlight.player_spotted.connect(_on_player_spotted)
+	flashlight.player_escaped.connect(_on_player_escaped)
+
 	leftLimit = global_position.x - patrol_limit
 	rightLimit = global_position.x + patrol_limit
 	add_to_group("enemy")
@@ -66,3 +73,12 @@ func update_flashlight_direction() -> void:
 
 func enemy_dropped_on() -> void:
 	queue_free()
+	
+func _on_player_spotted() -> void:
+	warning.visible = true
+
+func _on_player_escaped() -> void:
+	warning.visible = false
+
+func _on_player_caught() -> void:
+	warning.visible = false

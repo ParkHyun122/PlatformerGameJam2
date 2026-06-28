@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://lubwshilodim"]
 
-[node name="AfterImage" type="Node2D" unique_id=537552066]
+[ext_resource type="Script" uid="uid://bot13v3hk3ros" path="res://Scripts/Player/after_image.gd" id="1_srvaj"]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=396737493]
+[node name="AfterImage" type="Sprite2D" unique_id=124768725]
+script = ExtResource("1_srvaj")
