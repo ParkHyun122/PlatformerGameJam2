@@ -399,6 +399,24 @@ sources/0 = SubResource("TileSetAtlasSource_4dpyx")
 [node name="level1" type="Node2D" unique_id=1976766019]
 script = ExtResource("1_xgxfi")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=634374356]
+layer = -1
+offset = Vector2(0, 1200)
+transform = Transform2D(1, 0, 0, 1, 0, 1200)
+follow_viewport_enabled = true
+
+[node name="Parallax2D" type="Parallax2D" parent="CanvasLayer" unique_id=1377929260]
+texture_filter = 1
+scroll_scale = Vector2(0.12, 0.12)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Parallax2D" unique_id=1324223230]
+offset_left = -149.0
+offset_top = -1653.0
+offset_right = 2291.0
+offset_bottom = -153.0
+texture = ExtResource("7_5f3p6")
+metadata/_edit_use_anchors_ = true
+
 [node name="map" type="Node2D" parent="." unique_id=1211575305]
 
 [node name="Layer1" type="TileMapLayer" parent="map" unique_id=386799523]
@@ -445,26 +463,3 @@ scale = Vector2(1.3050036, 108.5692)
 position = Vector2(2345, -526)
 collision_layer = 20
 collision_mask = 32
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=580614245]
-scroll_offset = Vector2(0.58, 0)
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=80949522]
-texture_filter = 1
-position = Vector2(-1991, 928)
-motion_scale = Vector2(0.65, 0.65)
-
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1324223230]
-offset_left = 1842.0
-offset_top = -2581.0
-offset_right = 4282.0
-offset_bottom = -1081.0
-texture = ExtResource("7_5f3p6")
-
-[node name="Control" type="Control" parent="." unique_id=1048198571]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1841.0
-offset_top = -2583.0
-offset_right = 1841.0
-offset_bottom = -2543.0
