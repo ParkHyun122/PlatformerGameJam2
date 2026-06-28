@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dji3vcibx1v5b"]
+
+[ext_resource type="Script" uid="uid://d1grv3jn2d1wk" path="res://Scripts/Enemies/flashlight.gd" id="1_c6k44"]
+
+[node name="Flashlight" type="Area2D" unique_id=1503328791]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("1_c6k44")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=724603886]
+position = Vector2(-4, 0)
+polygon = PackedVector2Array(28, 3, 246, -49, 250, 123)
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1419401845]
+color = Color(0.9647059, 0.09411765, 0.13333334, 0.3254902)
+polygon = PackedVector2Array(-4, -1, 244, -50, 247, 123)

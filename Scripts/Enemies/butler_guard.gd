@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+@onready var flashlight: Flashlight = $Flashlight
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
+@export var turn_pause := 1.0
+@export var patrol_limit: float = 200.0
+
 enum enemy_state {
 	PATROL,
 	ALERT,
@@ -8,47 +14,52 @@ enum enemy_state {
 	DEAD
 }
 
-var curr: enemy_state = enemy_state.PATROL 
-const SPEED = 160.0
-const JUMP_VELOCITY = -400.0
-var dir = 1
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+var curr: enemy_state = enemy_state.PATROL
+const SPEED := 160.0
 
-@export var patrol_limit : float = 200
-var leftLimit
-var rightLimit
+var dir := 1
+var leftLimit: float
+var rightLimit: float
 
-func _ready():
+var waiting_to_turn := false
+var turn_timer := 0.0
+
+func _ready() -> void:
 	leftLimit = global_position.x - patrol_limit
 	rightLimit = global_position.x + patrol_limit
 	add_to_group("enemy")
-
+	update_flashlight_direction()
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
+	if waiting_to_turn:
+		velocity.x = 0.0
+		turn_timer -= delta
 
-	if curr == enemy_state.PATROL:
-		if global_position.x > leftLimit and global_position.x < rightLimit: 
-			velocity.x = dir * SPEED
-		else:
+		if turn_timer <= 0.0:
+			waiting_to_turn = false
 			dir *= -1
-			velocity.x = dir * SPEED
-			global_position.x += dir * 2 
+			update_flashlight_direction()
+
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if curr == enemy_state.PATROL:
+			if dir == 1 and global_position.x >= rightLimit:
+				start_turn_wait()
+			elif dir == -1 and global_position.x <= leftLimit:
+				start_turn_wait()
+			else:
+				velocity.x = dir * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0.0, SPEED)
 
 	move_and_slide()
 
-func enemy_dropped_on():
-	curr = enemy_state.DYING
-	collision_layer = 0
-	collision_mask = 0
-	collision_shape_2d.set_deferred("disabled", true)
+func start_turn_wait() -> void:
+	waiting_to_turn = true
+	turn_timer = turn_pause
+	velocity.x = 0.0
 
-func _on_kunai_entered(body: Node2D) -> void:
-	print("YOO kunai entered my robo body")
-
-	body.force_stick_to_moving_target(self)
+func update_flashlight_direction() -> void:
+	flashlight.scale.x = dir

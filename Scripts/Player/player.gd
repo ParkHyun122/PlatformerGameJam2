@@ -173,3 +173,8 @@ func _draw() -> void:
 		var dash_length = 8.0
 
 		draw_dashed_line(from_pos, to_pos, line_color, line_width, dash_length)
+		
+func get_caught() -> void:
+	print("PLAYER CAUGHT")
+	# temporary death logic
+	queue_free()
