@@ -17,6 +17,7 @@ var door_target_y
 
 
 func _ready() -> void:
+	GlobalScript.current_level = GlobalScript.Levels.LEVEL_2
 	if door1:
 		door_target_y = door1.global_position.y - 512
 	 

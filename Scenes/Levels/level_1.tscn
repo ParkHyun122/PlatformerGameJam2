@@ -478,5 +478,11 @@ position = Vector2(6977.0005, -874.00006)
 position = Vector2(0.00019836426, 0)
 
 [node name="butler_guard2" parent="." unique_id=964574044 instance=ExtResource("4_iixi8")]
+position = Vector2(6509, -1752)
+
+[node name="udead2" parent="." unique_id=1825183495 instance=ExtResource("8_jv26f")]
+position = Vector2(-196.99998, -129)
+rotation = -1.5717099
+scale = Vector2(0.281297, 0.9290085)
 
 [editable path="udead"]

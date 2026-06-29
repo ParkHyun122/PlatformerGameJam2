@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://df61qfrjetwip"]
+
+[ext_resource type="Script" uid="uid://8d3byo6i4nw2" path="res://Scripts/next_level.gd" id="1_fa6ee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hj5xy"]
+
+[node name="NextLevel" type="Area2D" unique_id=114900795]
+collision_mask = 2
+script = ExtResource("1_fa6ee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1288573617]
+shape = SubResource("RectangleShape2D_hj5xy")
