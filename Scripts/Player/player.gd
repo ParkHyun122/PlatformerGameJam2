@@ -8,6 +8,7 @@ extends CharacterBody2D
 var drop_target_enemy: Node2D = null
 @onready var label: Label = $UI/Label
 @onready var zip_limit: limit = $limit
+@onready var finite_state_machine: FiniteStateMachine = $FiniteStateMachine
 
 @export var max_speed := 200.0
 @export var acceleration := 1200.0

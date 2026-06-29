@@ -2,7 +2,8 @@ extends Node2D
 
 
 
-@onready var door1: TileMapLayer = $map/Layer2
+@onready var door1: TileMapLayer = $map/door1
+@onready var door_2: TileMapLayer = $map/door2
 
 @onready var player: Player = $Player
 
@@ -20,6 +21,7 @@ func _ready() -> void:
 	GlobalScript.current_level = GlobalScript.Levels.LEVEL_2
 	if door1:
 		door_target_y = door1.global_position.y - 512
+	
 	 
 func door_hit():
 	is_door_hit = true

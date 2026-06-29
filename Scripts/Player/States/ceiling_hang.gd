@@ -102,14 +102,17 @@ func _find_enemy_below() -> Node:
 func _on_body_entered(body: Node2D) -> void:
 	#if not body.is_in_group("enemies"):
 		#return
-	dropped_on_enemy = true
-	player.drop_target_enemy = body
-	player.label.text = "Press [E] to KIll"
-	enemy_attached = body
-	print("enemy in aread")
+	if GlobalScript.curr_player_state == GlobalScript.PlayerStates.CELINGHANG:
+		
+		dropped_on_enemy = true
+		player.drop_target_enemy = body
+		player.label.text = "Press [E] to KIll"
+		enemy_attached = body
+		print("enemy in aread")
 
 func _on_body_exited(body: Node2D) -> void:
-	if body == player.drop_target_enemy:
+	
+	if body == player.drop_target_enemy && GlobalScript.curr_player_state == GlobalScript.PlayerStates.CELINGHANG:
 		dropped_on_enemy = false
 		player.drop_target_enemy = null
 		player.label.text = ""
