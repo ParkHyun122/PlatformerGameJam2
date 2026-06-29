@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://6gcahkmmgi2k" path="res://Scenes/Interactables/button.gd" id="1_6pgxd"]
 [ext_resource type="Texture2D" uid="uid://d1c2dag8mcnq2" path="res://Assets/spritesheets/maps/button.png" id="2_6pgxd"]
+[ext_resource type="AudioStream" uid="uid://2jl7j6acdrb5" path="res://Assets/effects/sfx/button.mp3" id="3_84ywo"]
 
 [sub_resource type="Animation" id="Animation_6pgxd"]
 length = 0.001
@@ -96,6 +97,7 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_84ywo")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=12511079]
+stream = ExtResource("3_84ywo")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
