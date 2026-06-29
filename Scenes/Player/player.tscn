@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://db8xct81lhwsk" path="res://Scripts/Player/States/ceiling_hang.gd" id="11_74mp2"]
 [ext_resource type="Script" uid="uid://djjs8j8jhtj7x" path="res://Scripts/Player/States/drop_attack.gd" id="12_oikmp"]
 [ext_resource type="PackedScene" uid="uid://c4xnvykmy5c2h" path="res://Scenes/Effects/limit.tscn" id="13_06tpx"]
+[ext_resource type="AudioStream" uid="uid://c8hpk2c212cac" path="res://Assets/effects/sfx/xplosion.mp3" id="15_dey5f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvnfx"]
 radius = 22.206396
@@ -227,6 +228,12 @@ size_flags_horizontal = 4
 z_index = 2
 
 [node name="AfterImage" parent="." unique_id=124768725 instance=ExtResource("2_7g0yx")]
+
+[node name="Sounds" type="Node2D" parent="." unique_id=489017008]
+
+[node name="enemy_target" type="AudioStreamPlayer" parent="Sounds" unique_id=719950847]
+stream = ExtResource("15_dey5f")
+volume_db = -4.561
 
 [connection signal="body_entered" from="tackle_area" to="FiniteStateMachine/CeilingHang" method="_on_body_entered"]
 [connection signal="body_exited" from="tackle_area" to="FiniteStateMachine/CeilingHang" method="_on_body_exited"]

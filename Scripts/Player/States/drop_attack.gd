@@ -6,6 +6,7 @@ extends State
 @export var snap_offset := Vector2.ZERO
 @export var drop_speed := 1300.0
 @export var kill_enable_delay := 0.08
+@onready var enemy_target: AudioStreamPlayer = $"../../Sounds/enemy_target"
 
 var target_enemy: Node2D
 var target_location: Vector2
@@ -74,6 +75,7 @@ func perform_kill() -> void:
 
 	if is_instance_valid(target_enemy) and target_enemy.has_method("enemy_dropped_on"):
 		target_enemy.enemy_dropped_on()
+		enemy_target.play()
 
 	player.drop_target_enemy = null
 
