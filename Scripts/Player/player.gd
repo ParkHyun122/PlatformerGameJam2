@@ -184,9 +184,9 @@ func _draw() -> void:
 		draw_dashed_line(from_pos, to_pos, line_color, line_width, dash_length)
 		
 func get_caught() -> void:
-	print("PLAYER CAUGHT")
 	# temporary death logic
 	queue_free()
+	get_tree().change_scene_to_file("res://Scenes/Screens/death_screen.tscn")
 
 func start_ceiling_detach_lockout() -> void:
 	ceiling_detach_lockout = ceiling_detach_lockout_max

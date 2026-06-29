@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://80h274yf3666"]
 
 [ext_resource type="Script" uid="uid://b74sj0nmhrk00" path="res://Scripts/Screens/main_menu.gd" id="1_7uq44"]
+[ext_resource type="FontFile" uid="uid://m1yuqrekibwe" path="res://Assets/fonts/Nevera-Regular.otf" id="2_5ewdl"]
 
 [node name="main_menu" type="Node2D" unique_id=191001771]
 script = ExtResource("1_7uq44")
@@ -18,30 +19,45 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 142.0
-offset_top = 54.0
-offset_right = 1056.0
-offset_bottom = 224.0
+offset_left = 302.0
+offset_top = 425.0
+offset_right = 930.0
+offset_bottom = 520.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_5ewdl")
+theme_override_font_sizes/font_size = 60
 text = "Start"
 
 [node name="Help" type="Button" parent="button_manager" unique_id=282287794]
 layout_mode = 0
-offset_left = 160.0
-offset_top = 367.0
-offset_right = 1074.0
-offset_bottom = 537.0
+offset_left = 323.0
+offset_top = 581.0
+offset_right = 954.0
+offset_bottom = 669.0
+theme_override_fonts/font = ExtResource("2_5ewdl")
+theme_override_font_sizes/font_size = 60
 text = "Help"
 
 [node name="Quit" type="Button" parent="button_manager" unique_id=197441228]
 layout_mode = 0
-offset_left = 157.0
-offset_top = 674.0
-offset_right = 1079.0
-offset_bottom = 834.0
+offset_left = 319.0
+offset_top = 708.0
+offset_right = 951.0
+offset_bottom = 794.0
+theme_override_fonts/font = ExtResource("2_5ewdl")
+theme_override_font_sizes/font_size = 60
 text = "Quit
 "
+
+[node name="Label" type="Label" parent="." unique_id=1279330829]
+offset_left = 138.0
+offset_top = 134.0
+offset_right = 1144.0
+offset_bottom = 330.0
+theme_override_fonts/font = ExtResource("2_5ewdl")
+theme_override_font_sizes/font_size = 150
+text = "SpaceNinja"
 
 [connection signal="pressed" from="button_manager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="button_manager/Help" to="." method="_on_help_pressed"]

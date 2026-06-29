@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ctooksjaeqnkk"]
+
+[ext_resource type="Script" uid="uid://rxwpeithm1lv" path="res://Scripts/Screens/death_screen.gd" id="1_ltcsj"]
+[ext_resource type="FontFile" uid="uid://m1yuqrekibwe" path="res://Assets/fonts/Nevera-Regular.otf" id="1_swhjb"]
+
+[node name="Death_screen" type="Node2D" unique_id=2097562694]
+script = ExtResource("1_ltcsj")
+
+[node name="Label" type="Label" parent="." unique_id=1672746238]
+offset_left = 98.0
+offset_top = 151.0
+offset_right = 1158.0
+offset_bottom = 281.0
+theme_override_fonts/font = ExtResource("1_swhjb")
+theme_override_font_sizes/font_size = 100
+text = "U got caught boi"
+
+[node name="retry" type="Button" parent="." unique_id=1462120546]
+offset_left = 257.0
+offset_top = 460.0
+offset_right = 1028.0
+offset_bottom = 579.0
+theme_override_fonts/font = ExtResource("1_swhjb")
+theme_override_font_sizes/font_size = 80
+text = "Retry"
+
+[node name="home" type="Button" parent="." unique_id=1567899757]
+offset_left = 255.0
+offset_top = 622.0
+offset_right = 1023.0
+offset_bottom = 755.0
+theme_override_fonts/font = ExtResource("1_swhjb")
+theme_override_font_sizes/font_size = 65
+text = "Back to main menu"
+
+[connection signal="pressed" from="retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="home" to="." method="_on_home_pressed"]
