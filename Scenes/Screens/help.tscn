@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bdses5u0d4woc"]
+
+[ext_resource type="FontFile" uid="uid://m1yuqrekibwe" path="res://Assets/fonts/Nevera-Regular.otf" id="1_emi11"]
+[ext_resource type="Script" uid="uid://bkjx2pc88a5ot" path="res://Scripts/Screens/help.gd" id="1_s6cuv"]
+
+[node name="Help" type="Node2D" unique_id=577958495]
+script = ExtResource("1_s6cuv")
+
+[node name="Controls" type="Label" parent="." unique_id=32923541]
+offset_left = 433.0
+offset_top = 85.0
+offset_right = 863.0
+offset_bottom = 181.0
+theme_override_fonts/font = ExtResource("1_emi11")
+theme_override_font_sizes/font_size = 70
+text = "Controls"
+
+[node name="Goal" type="Label" parent="." unique_id=1454986752]
+offset_left = 522.0
+offset_top = 413.0
+offset_right = 785.0
+offset_bottom = 505.0
+theme_override_fonts/font = ExtResource("1_emi11")
+theme_override_font_sizes/font_size = 70
+text = "Goals"
+
+[node name="control_detail" type="Label" parent="." unique_id=2074451865]
+offset_left = 147.0
+offset_top = 209.0
+offset_right = 1159.0
+offset_bottom = 317.0
+theme_override_fonts/font = ExtResource("1_emi11")
+theme_override_font_sizes/font_size = 25
+text = "WASD to Move, Jump, and Duck under
+Aim with mouse and press Space to cling on to orange surfaces
+Aim with mouse and click left mouse button to throw kunai"
+
+[node name="goals_detail" type="Label" parent="." unique_id=1177262818]
+offset_left = 156.0
+offset_top = 535.0
+offset_right = 1133.0
+offset_bottom = 647.0
+theme_override_fonts/font = ExtResource("1_emi11")
+theme_override_font_sizes/font_size = 25
+text = "You are a rogue pirate in space trying to raid a spaceship. 
+your best weapon is stealth. sneak into enemy base without 
+getting caught by the guards and reach the end of the level."
+
+[node name="goBack" type="Button" parent="." unique_id=1672692233]
+offset_left = 481.0
+offset_top = 736.0
+offset_right = 801.0
+offset_bottom = 823.0
+theme_override_fonts/font = ExtResource("1_emi11")
+theme_override_font_sizes/font_size = 35
+text = "Go back"
+
+[connection signal="pressed" from="goBack" to="." method="_on_go_back_pressed"]
