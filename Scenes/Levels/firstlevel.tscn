@@ -49,11 +49,6 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_2hssh")
 
-[sub_resource type="Gradient" id="Gradient_vrs8d"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cdpb8"]
-gradient = SubResource("Gradient_vrs8d")
-
 [node name="level2" type="Node2D" unique_id=1976766019]
 script = ExtResource("1_vrs8d")
 
@@ -119,9 +114,3 @@ scale = Vector2(1.3050036, 108.5692)
 position = Vector2(2345, -526)
 collision_layer = 20
 collision_mask = 32
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1890348710]
-position = Vector2(584, -355.00003)
-rotation = 1.5690246
-scale = Vector2(-10.753987, 15.024465)
-texture = SubResource("GradientTexture2D_cdpb8")

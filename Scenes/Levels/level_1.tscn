@@ -396,6 +396,8 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 39
 sources/0 = SubResource("TileSetAtlasSource_4dpyx")
 
+[sub_resource type="ImageTexture" id="ImageTexture_5f3p6"]
+
 [node name="level1" type="Node2D" unique_id=1976766019]
 script = ExtResource("1_xgxfi")
 
@@ -463,3 +465,6 @@ scale = Vector2(1.3050036, 108.5692)
 position = Vector2(2345, -526)
 collision_layer = 20
 collision_mask = 32
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1942430714]
+texture = SubResource("ImageTexture_5f3p6")

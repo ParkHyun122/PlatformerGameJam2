@@ -119,6 +119,7 @@ func throw_or_retrieve_kunai():
 		current_kunai.spawnPos = global_position
 		current_kunai.spawnRot = get_mouse_dir().angle()
 		main.add_child.call_deferred(current_kunai)
+		print("kunai added to scene")
 	else:
 		current_kunai.retrieve()
 		
