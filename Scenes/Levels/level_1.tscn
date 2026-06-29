@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dejtb47s8ok4" path="res://Scenes/Enemies/butler_guard.tscn" id="4_iixi8"]
 [ext_resource type="PackedScene" uid="uid://c7onocjkgwvn4" path="res://Scenes/Interactables/button.tscn" id="5_cyadu"]
 [ext_resource type="Texture2D" uid="uid://dpo4tfdih1bqb" path="res://Assets/maps/backgrounds/background1.png" id="7_5f3p6"]
+[ext_resource type="PackedScene" uid="uid://bej2alflsgf6y" path="res://Scenes/Platform/udead.tscn" id="8_jv26f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dpyx"]
 texture = ExtResource("1_tlcug")
@@ -435,6 +436,7 @@ tile_set = SubResource("TileSet_3mqfk")
 
 [node name="Player" parent="." unique_id=1620564711 instance=ExtResource("2_4dpyx")]
 position = Vector2(177, -149)
+scale = Vector2(1.0000672, 0.9993243)
 
 [node name="cling_platform" parent="." unique_id=2026071829 instance=ExtResource("3_3mqfk")]
 position = Vector2(3839, -756)
@@ -468,3 +470,13 @@ collision_mask = 32
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1942430714]
 texture = SubResource("ImageTexture_5f3p6")
+
+[node name="udead" parent="." unique_id=325906361 instance=ExtResource("8_jv26f")]
+position = Vector2(6977.0005, -874.00006)
+
+[node name="CollisionShape2D" parent="udead" index="0" unique_id=1108951279]
+position = Vector2(0.00019836426, 0)
+
+[node name="butler_guard2" parent="." unique_id=964574044 instance=ExtResource("4_iixi8")]
+
+[editable path="udead"]

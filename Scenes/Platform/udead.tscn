@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bej2alflsgf6y"]
+
+[ext_resource type="Script" uid="uid://c3ob735bi43n7" path="res://Scripts/Player/udead.gd" id="1_bbadq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v83pc"]
+size = Vector2(913.3804, 287.8598)
+
+[node name="udead" type="Area2D" unique_id=325906361]
+position = Vector2(-132, -124)
+scale = Vector2(0.83207476, 1.1707088)
+collision_mask = 2
+script = ExtResource("1_bbadq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1108951279]
+position = Vector2(-3.6054468, 0)
+shape = SubResource("RectangleShape2D_v83pc")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=594142011]
+position = Vector2(-459.09338, 88.83507)
+points = PackedVector2Array(-2.4036255, 2.5625572, 912.1777, -117.877304)
+default_color = Color(1, 0, 0, 0.5294118)
+
+[node name="Line2D2" type="Line2D" parent="." unique_id=1712466921]
+position = Vector2(-459.09338, -89.68926)
+points = PackedVector2Array(0, 0.8541908, 913.3795, 181.08688, -1.2018433, -47.834274)
+default_color = Color(1, 0, 0, 0.5294118)
+
+[node name="Line2D3" type="Line2D" parent="." unique_id=195956066]
+position = Vector2(-459.09338, 139.2319)
+points = PackedVector2Array(-2.4036255, 2.5625572, -2.4036255, 1.708355, 912.1777, -117.877304)
+default_color = Color(1, 0, 0, 0.5294118)
+
+[node name="Line2D4" type="Line2D" parent="." unique_id=1168701772]
+position = Vector2(-459.09338, 88.83507)
+points = PackedVector2Array(-1.2018433, -205.00401, 618.9348, 53.813564)
+default_color = Color(1, 0, 0, 0.5294118)
+
+[node name="Line2D5" type="Line2D" parent="." unique_id=413086991]
+position = Vector2(-459.09338, 88.83507)
+points = PackedVector2Array(0, -84.56415, 390.5899, 54.667747)
+default_color = Color(1, 0, 0, 0.5294118)
+
+[node name="Line2D6" type="Line2D" parent="." unique_id=1627826872]
+position = Vector2(-459.09338, 88.83507)
+points = PackedVector2Array(-1.2018433, -108.48129, 910.9758, -172.54504)
+default_color = Color(1, 0, 0, 0.5294118)
+
+[node name="Line2D7" type="Line2D" parent="." unique_id=677388807]
+position = Vector2(-459.09338, 88.83507)
+points = PackedVector2Array(-2.4036255, -34.16733, 910.9758, -207.56656)
+default_color = Color(1, 0, 0, 0.5294118)
