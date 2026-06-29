@@ -10,11 +10,11 @@ func _on_body_entered(body: Node2D) -> void:
 	match GlobalScript.current_level:
 		GlobalScript.Levels.LEVEL_1:
 			GlobalScript.current_level = GlobalScript.Levels.LEVEL_2
-			get_tree().change_scene_to_file("res://Scenes/Levels/Level2.tscn")
+			get_tree().change_scene_to_file("res://Scenes/Levels/level_1.tscn")
 
 		GlobalScript.Levels.LEVEL_2:
 			GlobalScript.current_level = GlobalScript.Levels.LEVEL_3
-			get_tree().change_scene_to_file("res://Scenes/Levels/Level3.tscn")
+			
 
 		GlobalScript.Levels.LEVEL_3:
 			print("Game Complete")

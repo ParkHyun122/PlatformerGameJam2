@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c7onocjkgwvn4" path="res://Scenes/Interactables/button.tscn" id="5_cyadu"]
 [ext_resource type="Texture2D" uid="uid://dpo4tfdih1bqb" path="res://Assets/maps/backgrounds/background1.png" id="7_5f3p6"]
 [ext_resource type="PackedScene" uid="uid://bej2alflsgf6y" path="res://Scenes/Platform/udead.tscn" id="8_jv26f"]
+[ext_resource type="PackedScene" uid="uid://df61qfrjetwip" path="res://Scenes/Platform/next_level.tscn" id="9_rb0md"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dpyx"]
 texture = ExtResource("1_tlcug")
@@ -484,5 +485,8 @@ position = Vector2(6509, -1752)
 position = Vector2(-196.99998, -129)
 rotation = -1.5717099
 scale = Vector2(0.281297, 0.9290085)
+
+[node name="NextLevel" parent="." unique_id=114900795 instance=ExtResource("9_rb0md")]
+position = Vector2(7217, -130)
 
 [editable path="udead"]

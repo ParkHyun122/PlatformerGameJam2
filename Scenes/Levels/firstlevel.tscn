@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://banbl16u1mtw6" path="res://Scenes/Player/player.tscn" id="5_vdp6k"]
 [ext_resource type="PackedScene" uid="uid://t4fp7j4rie76" path="res://Scenes/Platform/cling_platform.tscn" id="6_8h5fr"]
 [ext_resource type="PackedScene" uid="uid://dejtb47s8ok4" path="res://Scenes/Enemies/butler_guard.tscn" id="7_x5utk"]
+[ext_resource type="PackedScene" uid="uid://df61qfrjetwip" path="res://Scenes/Platform/next_level.tscn" id="8_vrs8d"]
 [ext_resource type="PackedScene" uid="uid://c7onocjkgwvn4" path="res://Scenes/Interactables/button.tscn" id="8_vvai5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2hssh"]
@@ -155,3 +156,11 @@ z_index = 0
 position = Vector2(1998, -1745)
 collision_layer = 20
 collision_mask = 32
+
+[node name="NextLevel" parent="." unique_id=114900795 instance=ExtResource("8_vrs8d")]
+position = Vector2(740, -1810)
+
+[node name="CollisionShape2D" parent="NextLevel" index="0" unique_id=1288573617]
+position = Vector2(-0.5, 80.25)
+
+[editable path="NextLevel"]
